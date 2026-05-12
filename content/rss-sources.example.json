@@ -1,0 +1,6 @@
+{
+  "feeds": [
+    { "url": "https://rss.joins.com/joins_health_list.xml", "label": "중앙일보 건강 (예시)" },
+    { "url": "https://rss.etnews.com/society.xml", "label": "ET 보도 (예시) — 허용 범위 확인 후 사용" }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "_comment": "건강·라이프 등 한국어 RSS 권장. 공개·이용 범위는 각 매체 약관을 확인하세요.",
+  "feeds": [
+    { "url": "https://rss.joins.com/joins_health_list.xml", "label": "중앙일보 건강" }
+  ]
+}

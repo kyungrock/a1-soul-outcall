@@ -81,6 +81,7 @@ function writeSitemapAndRobots(effectiveUrl) {
   const urls = new Set();
   urls.add(`${effectiveUrl}/index.html`);
   urls.add(`${effectiveUrl}/shops.html`);
+  urls.add(`${effectiveUrl}/blog-article.html`);
   for (const card of cards) {
     urls.add(effectiveUrl + buildDetailPath(card, shops));
   }
@@ -97,6 +98,8 @@ function writeSitemapAndRobots(effectiveUrl) {
         priority = "0.9";
       } else if (/\/shop-detail\.html/.test(loc)) {
         priority = "0.75";
+      } else if (/\/blog-article\.html$/.test(loc)) {
+        priority = "0.65";
       }
       return `  <url>
     <loc>${xmlEscape(loc)}</loc>
@@ -248,6 +251,11 @@ const pagesIndex = [
     file: "shop-detail.html",
     injectFn: () =>
       SITE_CONFIGURED ? blockShopDetailTemplate(SITE_CONFIGURED) : blockUnset(),
+  },
+  {
+    file: "blog-article.html",
+    injectFn: () =>
+      SITE_CONFIGURED ? blockForStaticPage(SITE_CONFIGURED, "/blog-article.html") : blockUnset(),
   },
 ];
 

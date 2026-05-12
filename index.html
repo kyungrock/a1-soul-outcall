@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="js/page-base.js"></script>
   <title>서울출장마사지 - 20대,30대 힐링출장 서비스</title>
   <meta name="description" content="서울출장마사지 — 20대·30대 힐링출장 서비스. 방문형 웰니스 케어 안내, 프로그램·이용 방법·문의" />
   <meta name="keywords" content="서울출장마사지,출장마사지,홈타이,힐링출장,20대관리사" />
@@ -21,6 +22,8 @@
   <link rel="canonical" href="https://kyungrock.github.io/a1-soul-outcall/index.html" />
   <meta property="og:url" content="https://kyungrock.github.io/a1-soul-outcall/index.html" />
   <meta name="twitter:url" content="https://kyungrock.github.io/a1-soul-outcall/index.html" />
+  <meta property="og:image" content="https://kyungrock.github.io/a1-soul-outcall/images/og-default.png" />
+  <meta name="twitter:image" content="https://kyungrock.github.io/a1-soul-outcall/images/og-default.png" />
   <!-- APPLY_SEO_END -->
   <script type="application/ld+json">
   {
@@ -36,7 +39,7 @@
   <link rel="stylesheet" href="shops.css" />
 </head>
 <body>
-  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <a class="skip-link" href="index.html#main">본문으로 건너뛰기</a>
 
   <header class="site-header">
     <div class="inner">
@@ -51,15 +54,16 @@
       </button>
       <nav id="site-nav" class="site-nav" aria-label="주요 메뉴">
         <ul>
-          <li><a href="#shops">업체</a></li>
-          <li><a href="#about">소개</a></li>
-          <li><a href="#regions">지역</a></li>
-          <li><a href="#highlights">특징</a></li>
-          <li><a href="#services">프로그램</a></li>
-          <li><a href="#process">이용 안내</a></li>
-          <li><a href="#notice">유의사항</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">문의</a></li>
+          <li><a href="index.html#shops">업체</a></li>
+          <li><a href="index.html#about">소개</a></li>
+          <li><a href="index.html#regions">지역</a></li>
+          <li><a href="index.html#highlights">특징</a></li>
+          <li><a href="index.html#services">프로그램</a></li>
+          <li><a href="index.html#process">이용 안내</a></li>
+          <li><a href="index.html#notice">유의사항</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="index.html#contact">문의</a></li>
+          <li><a href="index.html#blog-posts">글</a></li>
         </ul>
       </nav>
     </div>
@@ -81,8 +85,8 @@
             장시간 좌식·디스플레이 업무로 굳어지기 쉬운 목·어깨·허리 라인을 중심으로, 프로그램과 강도를 단계적으로 조정합니다.
           </p>
           <p class="hero-actions">
-            <a class="btn primary" href="#shops">등록 업체 보기</a>
-            <a class="btn ghost" href="#services">프로그램 살펴보기</a>
+            <a class="btn primary" href="index.html#shops">등록 업체 보기</a>
+            <a class="btn ghost" href="index.html#services">프로그램 살펴보기</a>
           </p>
         </div>
         <aside class="hero-panel" aria-label="한눈에 보기">
@@ -96,22 +100,569 @@
       </div>
     </section>
 
-    <section id="shops" class="section shops-main" aria-labelledby="shops-heading">
+    <div class="home-shops-blog-wrap">
+    <section id="blog-posts" class="section alt home-reorder-blog" aria-labelledby="blog-heading">
+      <div class="inner">
+        <span class="section-kicker">Blog</span>
+        <h2 id="blog-heading">오늘의 글·초안</h2>
+        <div id="blog-draft-list"></div>
+      </div>
+    </section>
+
+    <section id="shops" class="section shops-main home-reorder-shops" aria-labelledby="shops-heading">
       <div class="inner">
         <h2 id="shops-heading">등록 업체</h2>
         <p class="shops-hint">
           카드를 누르면 상세로 이동합니다. 전체 목록은 <a href="shops.html">업체 페이지</a>와 같습니다.
         </p>
-        <div id="shop-card-grid" class="shop-card-grid" aria-live="polite"></div>
+        <div id="shop-card-grid" class="shop-card-grid" data-static-shop-cards="1" aria-live="polite">
+<!--STATIC_SHOP_CARDS_BEGIN-->
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_instapretty_001" class="shop-card-hit" aria-label="20대 인스타이쁜이 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/20대인스타이쁜이.jpg" alt="서울 전지역 출장마사지 20대 인스타이쁜이 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">20대 인스타이쁜이</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718597033">📞 0507-1859-7033</span>
+            </div>
+            <p class="shop-card-greeting">서울 전역 홈타이를 기준으로 한 출장 케어입니다. 연락 주시는 동선에 맞춰 방문 일정을 잡고, 스포츠·오일·스웨디시 등 코스별로 몸의 긴장을 풀어 드립니다. 야간·새벽 예약도 상담으로 조율 가능합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">스포츠 마사지</span>
+                <span class="shop-card-tag">오일 마사지</span>
+                <span class="shop-card-tag">스웨디시</span>
+                <span class="shop-card-tag">VVIP 마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_korean_pretty_001" class="shop-card-hit" aria-label="한국 20대 이쁜이 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/한국20대이쁜이.jpg" alt="서울 전지역 출장마사지 한국 20대 이쁜이 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">한국 20대 이쁜이</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596753">📞 0507-1859-6753</span>
+            </div>
+            <p class="shop-card-greeting">서울 일대 루틴 피로에 맞춘 출장형 힐링입니다. 시내 동선 위주로 이동하며, 가벼운 스트레칭부터 오일·스웨디시까지 단계를 나눠 받을 수 있습니다. 첫 이용이어도 코스 안내를 차분히 도와드립니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">스포츠 마사지</span>
+                <span class="shop-card-tag">오일 마사지</span>
+                <span class="shop-card-tag">스웨디시</span>
+                <span class="shop-card-tag">VVIP 마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_korean_pretty_001" class="shop-card-hit" aria-label="24시 한국일본혼혈 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/24시한국일본혼혈.jpg" alt="서울 전지역 출장마사지 24시 한국일본혼혈 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">24시 한국일본혼혈</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596753">📞 0507-1859-6753</span>
+            </div>
+            <p class="shop-card-greeting">서울 일대 루틴 피로에 맞춘 출장형 힐링입니다. 시내 동선 위주로 이동하며, 가벼운 스트레칭부터 오일·스웨디시까지 단계를 나눠 받을 수 있습니다. 첫 이용이어도 코스 안내를 차분히 도와드립니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">스포츠 마사지</span>
+                <span class="shop-card-tag">오일 마사지</span>
+                <span class="shop-card-tag">스웨디시</span>
+                <span class="shop-card-tag">VVIP 마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_vvip_goddess_korean_001" class="shop-card-hit" aria-label="20대 여신 한국인 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/VVIP20대여신한국인홈케어.jpg" alt="서울 전지역 출장마사지 20대 여신 한국인 — 100,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">20대 여신 한국인</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">100,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596946">📞 0507-1859-6946</span>
+            </div>
+            <p class="shop-card-greeting">서울 일대 VIP 홈케어 스타일의 출장입니다. 한국인 관리사 위주로 구성되어 있으며, 프라이빗한 공간에서 집중 케어를 원하시는 분께 맞춥니다. 스웨디시·프리미엄 위주 상담을 권해 드립니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">VIP 스웨디시</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_tpanty_callgirl_001" class="shop-card-hit" aria-label="T팬티 콜걸 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/T팬티콜걸.jpg" alt="서울 전지역 출장마사지 T팬티 콜걸 — 60,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">T팬티 콜걸</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">60,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596585">📞 0507-1859-6585</span>
+            </div>
+            <p class="shop-card-greeting">서울 시내 위주로 이동하는 테마형 출장 코스입니다. 건식·스웨디시·믹스 등 단계별 옵션이 다양하니, 체력·시간에 맞게 조합해 보실 수 있습니다. 방문 전 코스명을 알려 주시면 준비가 수월합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">건식테라피</span>
+                <span class="shop-card-tag">센슈얼스웨디시</span>
+                <span class="shop-card-tag">VVIP 마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_pretty_tangle_001" class="shop-card-hit" aria-label="20대 탱글 출장 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/20대이쁘니탱글출장.jpg" alt="서울 전지역 출장마사지 20대 탱글 출장 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">20대 탱글 출장</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596510">📞 0507-1859-6510</span>
+            </div>
+            <p class="shop-card-greeting">서울에서 만나는 20대 라인 출장 홈타이입니다. 스포츠성 압과 오일 힐링을 번갈아 선택할 수 있어, 운동 부족·모니터 피로 둘 다 잡고 싶을 때 무난합니다. 믹스·한국인 스웨 등 옵션은 상담 시 안내합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">스포츠 마사지</span>
+                <span class="shop-card-tag">오일 마사지</span>
+                <span class="shop-card-tag">스웨디시</span>
+                <span class="shop-card-tag">VVIP 마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_instapretty_001" class="shop-card-hit" aria-label="우크라이나출장 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/우크라이나출장.jpg" alt="서울 전지역 출장마사지 우크라이나출장 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">우크라이나출장</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718597033">📞 0507-1859-7033</span>
+            </div>
+            <p class="shop-card-greeting">서울 전역 홈타이를 기준으로 한 출장 케어입니다. 연락 주시는 동선에 맞춰 방문 일정을 잡고, 스포츠·오일·스웨디시 등 코스별로 몸의 긴장을 풀어 드립니다. 야간·새벽 예약도 상담으로 조율 가능합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">스포츠 마사지</span>
+                <span class="shop-card-tag">오일 마사지</span>
+                <span class="shop-card-tag">스웨디시</span>
+                <span class="shop-card-tag">VVIP 마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_tokyo_hot_001" class="shop-card-hit" aria-label="도쿄핫 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_도쿄핫.jpg" alt="서울 전지역 출장마사지 도쿄핫 — 60,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">도쿄핫</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 365일 연중무휴</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">60,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596415">📞 0507-1859-6415</span>
+            </div>
+            <p class="shop-card-greeting">서울 시내 동선에 맞춘 혼혈·혼합 라인 출장입니다. 소통 위주로 진행되는 코스가 있어 첫 방문도 부담이 적은 편입니다. VIP·VVIP 등 심화 코스는 시간 여유 있을 때 추천드립니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">힘 쿵</span>
+                <span class="shop-card-tag">심 쿵</span>
+                <span class="shop-card-tag">짜릿 스웨디시</span>
+                <span class="shop-card-tag">도쿄핫VIP</span>
+                <span class="shop-card-tag">도쿄핫VVIP</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_tokyo_hot_001" class="shop-card-hit" aria-label="원정녀 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_원정녀.jpg" alt="서울 전지역 출장마사지 원정녀 — 60,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">원정녀</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 365일 연중무휴</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">60,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596415">📞 0507-1859-6415</span>
+            </div>
+            <p class="shop-card-greeting">서울 시내 동선에 맞춘 혼혈·혼합 라인 출장입니다. 소통 위주로 진행되는 코스가 있어 첫 방문도 부담이 적은 편입니다. VIP·VVIP 등 심화 코스는 시간 여유 있을 때 추천드립니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">힘 쿵</span>
+                <span class="shop-card-tag">심 쿵</span>
+                <span class="shop-card-tag">짜릿 스웨디시</span>
+                <span class="shop-card-tag">도쿄핫VIP</span>
+                <span class="shop-card-tag">도쿄핫VVIP</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_japan_mixed_001" class="shop-card-hit" aria-label="재팬혼혈출장 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_재팬혼혈.jpg" alt="서울 전지역 출장마사지 재팬혼혈출장 — 50,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">재팬혼혈출장</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">50,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596632">📞 0507-1859-6632</span>
+            </div>
+            <p class="shop-card-greeting">서울 일대 1인 위주 혼혈 출장 샵입니다. 타이·아로마·스웨디시 등 아시아계 기법을 섞어 받을 수 있어, 여행·출장 직후 몸을 풀기 좋습니다. 최소 예약 시간은 코스별로 다를 수 있습니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+                <span class="shop-card-tag">타이 코스</span>
+                <span class="shop-card-tag">미끌 아로밍</span>
+                <span class="shop-card-tag">힐링 &amp; 스웨디시</span>
+                <span class="shop-card-tag">VVIP 실장 추천코스</span>
+                <span class="shop-card-tag">스페셜 코스</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_bikini_outcall_001" class="shop-card-hit" aria-label="비키니출장 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_비키니출장.jpg" alt="서울 전지역 출장마사지 비키니출장 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">비키니출장</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718597155">📞 0507-1859-7155</span>
+            </div>
+            <p class="shop-card-greeting">서울 시내 동선을 기준으로 빠른 방문을 지향하는 출장입니다. 타이·아로마·VIP 힐링 등 가벼운 코스부터 긴 코스까지 선택지가 있으며, 일부 동선은 사정상 어려울 수 있으니 상담 시 확인 부탁드립니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_vip_20s_healing_korean_homecare_001" class="shop-card-hit" aria-label="VIP 20대 한국홈케어 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_vip20대힐링_한국홈케어.jpg" alt="서울 전지역 출장마사지 VIP 20대 한국홈케어 — 130,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">VIP 20대 한국홈케어</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 연중무휴 (폰이꺼진경우: 마감OR랜덤휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">130,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596680">📞 0507-1859-6680</span>
+            </div>
+            <p class="shop-card-greeting">서울 중심 프리미엄 홈케어 출장입니다. 스웨디시 위주의 깊은 이완을 원하시는 분께 맞추었고, 가격대가 높은 만큼 시간·공간 여유를 두고 예약하시는 것을 권합니다. 한국인 관리사 위주 구성입니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_sohot_outcall_001" class="shop-card-hit" aria-label="쏘핫 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_쏘핫.jpg" alt="서울 전지역 출장마사지 쏘핫 — 140,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">쏘핫</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>오후 8시 ~ 아침 06시 (폰OFF시: 마감OR랜덤휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">140,000원~</div>
+              <span class="shop-card-phone" data-tel="050718597050">📞 0507-1859-7050</span>
+            </div>
+            <p class="shop-card-greeting">서울 야간대에 강점을 둔 출장입니다. 한국·일본 라인이 섞여 있어 손맛 스타일을 고르실 수 있습니다. 운영이 밤 시간대에 몰려 있으니, 방문 전 반드시 통화 가능 여부를 확인해 주세요.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_24hour_sexy_outcall_001" class="shop-card-hit" aria-label="24시 슴살화끈색녀 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_슴살화끈색녀.jpg" alt="서울 전지역 출장마사지 24시 슴살화끈색녀 — 70,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">24시 슴살화끈색녀</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이꺼진경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">70,000원~</div>
+              <span class="shop-card-phone" data-tel="050718597034">📞 0507-1859-7034</span>
+            </div>
+            <p class="shop-card-greeting">서울 전역 상담 가능한 24시 부스 스타일 출장입니다. 스포츠·오일·스웨·VVIP까지 폭넓게 운영하며, 당일 컨디션에 따라 강도 조절을 요청하실 수 있습니다. 일부 지역은 협의가 필요합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_bj_sexy_outcall_001" class="shop-card-hit" aria-label="BJ 발정난 색끼년 출장 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_BJ발정난색끼년출장.jpg" alt="서울 전지역 출장마사지 BJ 발정난 색끼년 출장 — 60,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">BJ 발정난 색끼년 출장</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이꺼진경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">60,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596859">📞 0507-1859-6859</span>
+            </div>
+            <p class="shop-card-greeting">서울 기준 한·태 라인이 섞인 출장입니다. 건식으로 시작해 스웨디시·VVIP로 이어지는 식의 단계형 코스가 특징입니다. 빠른 이동을 내세우는 만큼, 정확한 주소·출입 정보를 미리 주시면 원활합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <article class="shop-card">
+        <a href="shop-detail.html?id=seoul_lingerie_hole_outcall_001" class="shop-card-hit" aria-label="란제리 구멍 출장 상세보기">
+          <div class="shop-card-image">
+            <img src="https://msg1000.com/images/출장마사지_란제리구멍출장.jpg" alt="서울 전지역 출장마사지 란제리 구멍 출장 — 60,000원~" loading="lazy" width="400" height="225" />
+          </div>
+          <div class="shop-card-body">
+            <div class="shop-card-header">
+              <h2 class="shop-card-title">란제리 구멍 출장</h2>
+            </div>
+            <div class="shop-card-meta">
+              <span>📍 <span>서울 전지역</span></span>
+              <span>⏱ <span>24시간 (폰이꺼진경우: 마감, 랜덤 휴무)</span></span>
+            </div>
+            <div class="shop-card-price-row">
+              <div class="shop-card-price">60,000원~</div>
+              <span class="shop-card-phone" data-tel="050718596648">📞 0507-1859-6648</span>
+            </div>
+            <p class="shop-card-greeting">서울 일대 섬세한 스웨·건식 조합을 내세운 출장입니다. 행복·힐링을 키워드로 두고, 장시간 앉는 직종 분들의 어깨·허리 라인에 맞춘 상담을 드립니다. 일부 지역은 협의 후 방문합니다.</p>
+              <div class="shop-card-tags">
+                <span class="shop-card-tag">출장마사지</span>
+              </div>
+            <div class="shop-card-footer">
+              <span class="shop-card-link">
+                상세 보기
+                <span>↗</span>
+              </span>
+            </div>
+          </div>
+        </a>
+      </article>
+<!--STATIC_SHOP_CARDS_END-->
+        </div>
       </div>
     </section>
+    </div>
 
     <section id="related-sites" class="section alt related-sites-section" aria-labelledby="related-sites-heading">
       <div class="inner">
         <h2 id="related-sites-heading" class="related-sites-title">관련된 서울출장 사이트</h2>
         <p class="related-sites-lead">선택 시 새 탭에서 열립니다.</p>
         <ul class="related-site-grid" role="list">
-          <li>
+          <li class="related-site-cell">
             <a
               class="related-site-banner"
               href="https://gunmacity.com/shop?wr_1=%EC%84%9C%EC%9A%B8"
@@ -119,10 +670,11 @@
               rel="noopener noreferrer"
             >
               <span class="related-site-name">건마시티</span>
-              <span class="related-site-host">gunmacity.com · 서울</span>
+              <span class="related-site-host">서울출장마사지 함께 보는 gunmacity.com · 서울</span>
             </a>
+            <p class="related-site-greeting">서울출장마사지 - 서울 지역 업체를 찾으실 때 함께 참고해 보세요.</p>
           </li>
-          <li>
+          <li class="related-site-cell">
             <a
               class="related-site-banner"
               href="https://outcall.kr/static-pages/%EC%84%9C%EC%9A%B8.html"
@@ -130,10 +682,11 @@
               rel="noopener noreferrer"
             >
               <span class="related-site-name">여신 출장</span>
-              <span class="related-site-host">outcall.kr · 서울</span>
+              <span class="related-site-host">서울출장마사지 비교 참고 outcall.kr · 서울</span>
             </a>
+            <p class="related-site-greeting">서울출장마사지 - 홈타이·출장 정보를 비교하며 편하게 둘러보세요.</p>
           </li>
-          <li>
+          <li class="related-site-cell">
             <a
               class="related-site-banner"
               href="https://mapiya.co.kr/store?sidoCode=10&amp;areaCode=1010&amp;as_theme=%EC%B6%9C%EC%9E%A5%EC%83%B5"
@@ -141,10 +694,11 @@
               rel="noopener noreferrer"
             >
               <span class="related-site-name">마피야</span>
-              <span class="related-site-host">mapiya.co.kr · 출장샵</span>
+              <span class="related-site-host">서울출장마사지 전문 mapiya.co.kr · 출장샵</span>
             </a>
+            <p class="related-site-greeting">서울출장마사지 - 테마별 목록과 맞춰 보시면 선택에 도움이 됩니다.</p>
           </li>
-          <li>
+          <li class="related-site-cell">
             <a
               class="related-site-banner"
               href="https://outcallmassage.co.kr/regions/%EC%84%9C%EC%9A%B8%EC%B6%9C%EC%9E%A5%EB%A7%88%EC%82%AC%EC%A7%80.html"
@@ -152,10 +706,11 @@
               rel="noopener noreferrer"
             >
               <span class="related-site-name">출장안마 정보</span>
-              <span class="related-site-host">outcallmassage.co.kr</span>
+              <span class="related-site-host">서울출장마사지 지역 안내 보조 outcallmassage.co.kr</span>
             </a>
+            <p class="related-site-greeting">서울출장마사지 - 지역별 상세 페이지를 보실 때 보조 자료로 활용해 주세요.</p>
           </li>
-          <li>
+          <li class="related-site-cell">
             <a
               class="related-site-banner"
               href="http://xn--z69au6wh5golr.com/?p=54"
@@ -163,10 +718,11 @@
               rel="noopener noreferrer"
             >
               <span class="related-site-name">외부 참고 링크</span>
-              <span class="related-site-host">xn--…golr.com</span>
+              <span class="related-site-host">서울출장마사지 외부 참고 · 이용 전 사이트 안내 확인</span>
             </a>
+            <p class="related-site-greeting">서울출장마사지 - 참고용으로 활용하시고, 이용 전 각 사이트 안내를 확인해 주세요.</p>
           </li>
-          <li>
+          <li class="related-site-cell">
             <a
               class="related-site-banner"
               href="https://msg1000.com/seoul-outcall.html"
@@ -174,8 +730,9 @@
               rel="noopener noreferrer"
             >
               <span class="related-site-name">서울 출장 정보</span>
-              <span class="related-site-host">msg1000.com</span>
+              <span class="related-site-host">서울출장마사지 연계 소식 msg1000.com</span>
             </a>
+            <p class="related-site-greeting">서울출장마사지 - 서울 출장 관련 소식을 더 보고 싶을 때 들러 보세요.</p>
           </li>
         </ul>
       </div>
@@ -282,7 +839,7 @@
             <p>
               부드러운 오일 스트로크와 천천히 이어지는 호흡 리듬을 맞추며 교감 신경 부하를 낮추는 데 초점을 둡니다.
             </p>
-            <a href="#contact" class="text-link">문의하기</a>
+            <a href="index.html#contact" class="text-link">문의하기</a>
           </li>
           <li>
             <span class="num">02</span>
@@ -290,7 +847,7 @@
             <p>
               근막 표층을 따라 길게 이어지는 스트로크로 혈류와 림프 움직임을 촉진하는 오일 테크닉입니다.
             </p>
-            <a href="#contact" class="text-link">문의하기</a>
+            <a href="index.html#contact" class="text-link">문의하기</a>
           </li>
           <li>
             <span class="num">03</span>
@@ -298,7 +855,7 @@
             <p>
               가벼운 압과 반복 패턴으로 부종이나 무거운 하체를 느낄 때 부담 적게 진행합니다.
             </p>
-            <a href="#contact" class="text-link">문의하기</a>
+            <a href="index.html#contact" class="text-link">문의하기</a>
           </li>
           <li>
             <span class="num">04</span>
@@ -306,7 +863,7 @@
             <p>
               향의 안정감과 근육 결 따라가는 스트로크를 결합해 하루 종일 쌓인 긴장을 동시에 다룹니다.
             </p>
-            <a href="#contact" class="text-link">문의하기</a>
+            <a href="index.html#contact" class="text-link">문의하기</a>
           </li>
           <li>
             <span class="num">05</span>
@@ -314,7 +871,7 @@
             <p>
               운동 후 회복이 필요할 때 특정 근군을 따라 조금 더 깊게 풀어 줍니다. 통증 유발 수준은 반드시 조율합니다.
             </p>
-            <a href="#contact" class="text-link">문의하기</a>
+            <a href="index.html#contact" class="text-link">문의하기</a>
           </li>
           <li>
             <span class="num">06</span>
@@ -322,7 +879,7 @@
             <p>
               목·어깨·허리 등 요청 부위 위주로 짧은 시간 안에 필요한 부분만 정리합니다.
             </p>
-            <a href="#contact" class="text-link">문의하기</a>
+            <a href="index.html#contact" class="text-link">문의하기</a>
           </li>
         </ul>
       </div>
@@ -449,11 +1006,13 @@
     </div>
   </footer>
 
+  <script src="data/blog-draft-manifest.js"></script>
   <script src="data/shop-card-data-outcall.js"></script>
   <script src="data/shops-outcall-matched.js"></script>
   <script src="js/outcall-shop-utils.js"></script>
   <script src="js/load-matched-shops.js"></script>
   <script src="js/shops-list-app.js" defer></script>
+  <script src="js/blog-list-on-index.js" defer></script>
   <script src="main.js" defer></script>
 </body>
 </html>

@@ -1,3 +1,8 @@
+/**
+ * 정적 카드: index.html / shops.html 에 `npm run shop:cards` 로 삽입된
+ * <!--STATIC_SHOP_CARDS_BEGIN--> … <!--STATIC_SHOP_CARDS_END--> 가 있으면 그대로 둡니다(소스 보기용).
+ * 마커만 있고 article 이 없을 때만 아래 템플릿으로 채웁니다. (scripts/render-static-shop-cards.mjs 와 동기)
+ */
 (function () {
   var MATCHED_URL = "data/shops-outcall-matched.json";
 
@@ -23,56 +28,144 @@
       .replace(/"/g, "&quot;");
   }
 
+  function normPhone(p) {
+    return String(p || "").replace(/\D/g, "");
+  }
+
+  function resolveMatchedShopId(card, shops) {
+    if (!card || !Array.isArray(shops)) return null;
+    var p = normPhone(card.phone);
+    if (p) {
+      var byPhone = shops.find(function (s) {
+        return normPhone(s.phone) === p;
+      });
+      if (byPhone) return byPhone.id;
+    }
+    var byName = shops.find(function (s) {
+      return s.name === card.name;
+    });
+    return byName ? byName.id : null;
+  }
+
+  function findMatchedShop(card, shops) {
+    var id = resolveMatchedShopId(card, shops);
+    if (!id) return null;
+    return shops.find(function (s) {
+      return s.id === id;
+    }) || null;
+  }
+
   function buildDetailHref(card, shops) {
-    var U = window.OutcallShopUtils;
-    var mid = U.resolveMatchedShopId(card, shops);
+    var mid = resolveMatchedShopId(card, shops);
     if (mid) return "shop-detail.html?id=" + encodeURIComponent(mid);
     return "shop-detail.html?cardId=" + encodeURIComponent(String(card.id));
   }
 
-  function renderCard(card, shops) {
-    var U = window.OutcallShopUtils;
+  function regionIncludesSeoul(region) {
+    return String(region || "").includes("서울");
+  }
+
+  function buildArticleHtml(card, shops) {
+    var m = findMatchedShop(card, shops);
+    var href = escapeHtml(buildDetailHref(card, shops));
+    var name = String(card.name || "").trim();
     var img = escapeHtml(card.image || "");
-    var name = escapeHtml(card.name);
-    var district = escapeHtml(card.district || card.address || "");
-    var price = escapeHtml(card.price || "");
-    var rating =
-      card.rating != null
-        ? '<span class="shop-card-meta">' +
-          escapeHtml(String(card.rating)) +
-          " · 리뷰 " +
-          escapeHtml(String(card.reviewCount != null ? card.reviewCount : 0)) +
+    var alt = escapeHtml((card.alt || name || "업체").trim());
+    var titleEsc = escapeHtml(name);
+    var district = escapeHtml(
+      String((m && (m.district || m.address)) || card.district || card.address || "").trim()
+    );
+    var hoursRaw = String((m && m.operatingHours) || card.operatingHours || "").trim();
+    var hoursEsc = escapeHtml(hoursRaw || "—");
+    var priceEsc = escapeHtml(String(card.price || "").trim());
+    var phone = String((m && m.phone) || card.phone || "").trim();
+    var telDigits = normPhone(phone);
+    var phoneEsc = escapeHtml(phone);
+    var descRaw = String((m && m.description) || card.description || "").trim();
+    var descEsc = escapeHtml(descRaw);
+
+    var services = (m && m.services) || card.services;
+    var tagList = Array.isArray(services) ? services.filter(Boolean).slice(0, 8) : [];
+    var tagsHtml = tagList.length
+      ? "\n              <div class=\"shop-card-tags\">\n" +
+        tagList
+          .map(function (t) {
+            return '                <span class="shop-card-tag">' + escapeHtml(String(t)) + "</span>";
+          })
+          .join("\n") +
+        "\n              </div>"
+      : "";
+
+    var phoneRow =
+      phone && telDigits
+        ? '<span class="shop-card-phone" data-tel="' +
+          escapeHtml(telDigits) +
+          '">📞 ' +
+          phoneEsc +
           "</span>"
+        : phone
+        ? '<span class="shop-card-phone" data-tel="">📞 ' + phoneEsc + "</span>"
         : "";
-    var href = buildDetailHref(card, shops);
+
     return (
-      '<a class="shop-card" href="' +
+      "      <article class=\"shop-card\">\n" +
+      '        <a href="' +
       href +
-      '">' +
-      '<span class="shop-card-image-wrap">' +
-      '<img src="' +
+      '" class="shop-card-hit" aria-label="' +
+      titleEsc +
+      ' 상세보기">\n' +
+      '          <div class="shop-card-image">\n' +
+      '            <img src="' +
       img +
-      '" alt="" loading="lazy" width="400" height="225" />' +
-      "</span>" +
-      '<span class="shop-card-body">' +
-      '<span class="shop-card-name">' +
-      name +
-      "</span>" +
-      '<span class="shop-card-district">' +
+      '" alt="' +
+      alt +
+      '" loading="lazy" width="400" height="225" />\n' +
+      "          </div>\n" +
+      '          <div class="shop-card-body">\n' +
+      '            <div class="shop-card-header">\n' +
+      '              <h2 class="shop-card-title">' +
+      titleEsc +
+      "</h2>\n" +
+      "            </div>\n" +
+      '            <div class="shop-card-meta">\n' +
+      '              <span>📍 <span>' +
       district +
-      "</span>" +
-      '<span class="shop-card-price">' +
-      price +
-      "</span>" +
-      rating +
-      "</span>" +
-      "</a>"
+      "</span></span>\n" +
+      '              <span>⏱ <span>' +
+      hoursEsc +
+      "</span></span>\n" +
+      "            </div>\n" +
+      '            <div class="shop-card-price-row">\n' +
+      '              <div class="shop-card-price">' +
+      priceEsc +
+      "</div>\n" +
+      "              " +
+      phoneRow +
+      "\n" +
+      "            </div>\n" +
+      '            <p class="shop-card-greeting">' +
+      descEsc +
+      "</p>" +
+      tagsHtml +
+      '\n            <div class="shop-card-footer">\n' +
+      '              <span class="shop-card-link">\n' +
+      "                상세 보기\n" +
+      "                <span>↗</span>\n" +
+      "              </span>\n" +
+      "            </div>\n" +
+      "          </div>\n" +
+      "        </a>\n" +
+      "      </article>"
     );
   }
 
   async function init() {
     var grid = document.getElementById("shop-card-grid");
     if (!grid) return;
+
+    if (grid.getAttribute("data-static-shop-cards") === "1" && grid.querySelector("article.shop-card")) {
+      return;
+    }
 
     if (!window.outcallShopCardData) {
       grid.innerHTML =
@@ -94,9 +187,9 @@
 
     grid.innerHTML = seoulCards
       .map(function (card) {
-        return renderCard(card, shops);
+        return buildArticleHtml(card, shops);
       })
-      .join("");
+      .join("\n\n");
   }
 
   if (document.readyState === "loading") {

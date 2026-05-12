@@ -3,6 +3,15 @@
   "private": true,
   "description": "서울출장마사지 정적 사이트",
   "scripts": {
-    "seo": "node scripts/apply-seo.mjs"
+    "seo": "node scripts/apply-seo.mjs",
+    "blog:manifest": "node scripts/build-blog-manifest.mjs",
+    "content:draft": "node scripts/fetch-daily-draft.mjs && npm run blog:manifest",
+    "content:draft:no-ai": "node scripts/fetch-daily-draft.mjs --no-ai && npm run blog:manifest",
+    "content:draft:force": "node scripts/fetch-daily-draft.mjs --force && npm run blog:manifest",
+    "content:draft:force:no-ai": "node scripts/fetch-daily-draft.mjs --no-ai --force && npm run blog:manifest",
+    "shop:cards": "node scripts/render-static-shop-cards.mjs"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
   }
 }
