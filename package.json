@@ -1,0 +1,8 @@
+{
+  "name": "soul-outcall-site",
+  "private": true,
+  "description": "서울출장마사지 정적 사이트",
+  "scripts": {
+    "seo": "node scripts/apply-seo.mjs"
+  }
+}

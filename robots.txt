@@ -1,0 +1,15 @@
+# 서울출장마사지 — robots (scripts/apply-seo.mjs)
+# 수정: seo-config.json siteUrl 또는 SITE_URL 로 node scripts/apply-seo.mjs
+
+User-agent: *
+Allow: /
+
+Disallow: /scripts/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>업체 상세 | 서울출장마사지 - 20대,30대 힐링출장 서비스</title>
+  <meta name="description" content="출장마사지 업체 상세 — 가격표·코스 안내, 운영 시간, 위치 및 전화 문의. 서울출장마사지에서 확인하세요." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="format-detection" content="telephone=yes" />
+  <meta name="theme-color" content="#2d6a4f" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:site_name" content="서울출장마사지" />
+  <meta property="og:title" content="업체 상세 | 서울출장마사지 - 20대,30대 힐링출장 서비스" />
+  <meta property="og:description" content="출장마사지 업체 가격표·코스 및 문의 정보." />
+  <meta name="twitter:card" content="summary" />
+  <!-- APPLY_SEO_START -->
+  <!-- seo-config.json 에 siteUrl 을 채운 뒤 node scripts/apply-seo.mjs 또는 npm run seo -->
+  <!-- APPLY_SEO_END -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="shops.css" />
+</head>
+<body class="shop-detail-page">
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="inner">
+      <p class="site-title">
+        <a href="index.html">
+          <span class="brand-name">서울출장마사지</span>
+          <span class="brand-tagline">20대,30대 힐링출장 서비스</span>
+        </a>
+      </p>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav">메뉴</button>
+      <nav id="site-nav" class="site-nav" aria-label="주요 메뉴">
+        <ul>
+          <li><a href="index.html">홈</a></li>
+          <li><a href="shops.html">업체</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="shop-detail-main">
+    <div id="shop-detail-root"></div>
+  </main>
+
+  <aside id="shop-detail-call-bar" class="detail-sticky-call" aria-label="전화 문의" hidden></aside>
+
+  <footer class="site-footer">
+    <div class="inner">
+      <p class="footer-brand"><strong>서울출장마사지</strong> <span class="footer-tagline">20대,30대 힐링출장 서비스</span></p>
+      <p class="copyright">© <span id="year"></span> 서울출장마사지</p>
+    </div>
+  </footer>
+
+  <script src="data/shop-card-data-outcall.js"></script>
+  <script src="data/shops-outcall-matched.js"></script>
+  <script src="js/outcall-shop-utils.js"></script>
+  <script src="js/load-matched-shops.js"></script>
+  <script src="js/shop-detail-app.js" defer></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="main.js" defer></script>
+</body>
+</html>
