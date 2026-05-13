@@ -63,6 +63,17 @@ function loadMatchedShops() {
   return j.shops || [];
 }
 
+/** blog-article.html ?slug= 과 동일 규칙 — data/blog-draft-manifest.json */
+function loadBlogDraftSlugs() {
+  const p = path.join(ROOT, "data", "blog-draft-manifest.json");
+  if (!fs.existsSync(p)) return [];
+  const arr = JSON.parse(fs.readFileSync(p, "utf8"));
+  if (!Array.isArray(arr)) return [];
+  return arr
+    .map((x) => (x && typeof x.slug === "string" ? x.slug : ""))
+    .filter((slug) => /^[\w.-]+$/.test(slug));
+}
+
 function xmlEscape(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -78,10 +89,24 @@ function escapeAttr(url) {
 function writeSitemapAndRobots(effectiveUrl) {
   const cards = loadOutcallCards();
   const shops = loadMatchedShops();
+  const blogSlugs = loadBlogDraftSlugs();
   const urls = new Set();
   urls.add(`${effectiveUrl}/index.html`);
   urls.add(`${effectiveUrl}/shops.html`);
   urls.add(`${effectiveUrl}/blog-article.html`);
+  for (const slug of blogSlugs) {
+    urls.add(
+      `${effectiveUrl}/blog-article.html?slug=${encodeURIComponent(slug)}`
+    );
+  }
+  for (const s of shops) {
+    const id = s && s.id != null ? String(s.id) : "";
+    if (id) {
+      urls.add(
+        `${effectiveUrl}/shop-detail.html?id=${encodeURIComponent(id)}`
+      );
+    }
+  }
   for (const card of cards) {
     urls.add(effectiveUrl + buildDetailPath(card, shops));
   }
@@ -98,6 +123,8 @@ function writeSitemapAndRobots(effectiveUrl) {
         priority = "0.9";
       } else if (/\/shop-detail\.html/.test(loc)) {
         priority = "0.75";
+      } else if (/\/blog-article\.html\?/.test(loc)) {
+        priority = "0.62";
       } else if (/\/blog-article\.html$/.test(loc)) {
         priority = "0.65";
       }
