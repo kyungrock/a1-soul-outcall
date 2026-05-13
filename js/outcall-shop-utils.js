@@ -34,10 +34,12 @@
    * 상대 이미지 경로를 절대 URL로
    */
   function resolveImageUrl(path, baseUrl) {
-    var base = baseUrl || "https://msg1000.com/";
     if (!path) return "";
     if (/^https?:\/\//i.test(path)) return path;
-    return base.replace(/\/?$/, "/") + String(path).replace(/^\//, "");
+    var p = String(path).replace(/^\//, "");
+    if (/^images\//i.test(p)) return p;
+    var base = baseUrl || "https://msg1000.com/";
+    return base.replace(/\/?$/, "/") + p;
   }
 
   global.OutcallShopUtils = {

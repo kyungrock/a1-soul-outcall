@@ -28,6 +28,30 @@
       .replace(/"/g, "&quot;");
   }
 
+  /** 카드 본문: alt 키워드(서울 전지역 출장마사지·상호·요금)를 도입에 포함 — render-static-shop-cards.mjs 와 동기 */
+  function buildShopCardGreetingEscaped(card, m) {
+    var altLine = String(card.alt || "").trim();
+    var body = String((m && m.description) || card.description || card.greeting || "").trim();
+    var name = String(card.name || "").trim();
+    var price = String(card.price || "").trim();
+    var fallbackLead =
+      name && price
+        ? "서울 전지역 출장마사지 " + name + " — " + price
+        : name
+          ? "서울 전지역 출장마사지 " + name
+          : "서울 전지역 출장마사지";
+    var lead = altLine || fallbackLead;
+    if (!body) {
+      return escapeHtml(lead + ". 홈타이·출장 상담으로 일정·코스를 안내합니다.");
+    }
+    var norm = body.replace(/\s+/g, " ").trim();
+    var leadNorm = lead.replace(/\s+/g, " ").trim();
+    if (norm.indexOf(leadNorm) === 0 || norm.indexOf(leadNorm + ".") === 0) {
+      return escapeHtml(body);
+    }
+    return escapeHtml(lead + ". " + body);
+  }
+
   function normPhone(p) {
     return String(p || "").replace(/\D/g, "");
   }
@@ -81,8 +105,7 @@
     var phone = String((m && m.phone) || card.phone || "").trim();
     var telDigits = normPhone(phone);
     var phoneEsc = escapeHtml(phone);
-    var descRaw = String((m && m.description) || card.description || "").trim();
-    var descEsc = escapeHtml(descRaw);
+    var descEsc = buildShopCardGreetingEscaped(card, m);
 
     var services = (m && m.services) || card.services;
     var tagList = Array.isArray(services) ? services.filter(Boolean).slice(0, 8) : [];

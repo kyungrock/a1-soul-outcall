@@ -38,6 +38,10 @@ const SHOP_DISPLAY_NAME_TO_CARD_NAME = {
   "VVIP 20대 여신 한국인홈케어": "20대 여신 한국인",
   "20대 이쁘니 탱글 출장": "20대 탱글 출장",
   "VIP 20대 힐링 한국홈케어": "VIP 20대 한국홈케어",
+  "T팬티 콜걸": "T팬티 테라피 출장",
+  "란제리 구멍 출장": "란제리 힐링 출장",
+  "BJ 발정난 색끼년 출장": "믹스 스웨 힐링 출장",
+  "24시 슴살화끈색녀": "24시 홈케어 힐링",
 };
 
 function cardCanonicalNameFromShopDisplayName(displayName) {
@@ -115,6 +119,7 @@ function syncMatchedShopsFromCards(shops, cards) {
       console.warn(`sync: no card for "${s.name}" ${s.phone}`);
       continue;
     }
+    s.name = c.name;
     s.region = "서울";
     s.district = "서울 전지역";
     s.address = "서울 전지역";
@@ -123,6 +128,15 @@ function syncMatchedShopsFromCards(shops, cards) {
     if ("greeting" in s && c.greeting) s.greeting = c.greeting;
     if (Array.isArray(s.tags)) s.tags = scrubTags(s.tags);
     if (Array.isArray(s.features)) s.features = scrubFeatures(s.features);
+    if (Array.isArray(s.reviews) && Array.isArray(c.reviews)) {
+      s.reviews = s.reviews.map((mr, i) => {
+        const cr = c.reviews[i];
+        if (mr && typeof mr === "object" && cr && typeof cr.review === "string") {
+          return { ...mr, reviewBody: sanitizeSeoulText(cr.review) };
+        }
+        return mr;
+      });
+    }
   }
   if (missing) console.warn("syncMatchedShopsFromCards unmatched:", missing);
 }
@@ -168,7 +182,7 @@ const copyByName = {
     greeting: "서울 VIP 홈케어 — 일정·장소는 통화로 확정해 드립니다.",
     detailAddress: "서울 출장샵 스타일 방문 · 사전 예약 권장",
   },
-  "T팬티 콜걸": {
+  "T팬티 테라피 출장": {
     description:
       "서울 시내 위주로 이동하는 테마형 출장 코스입니다. 건식·스웨디시·믹스 등 단계별 옵션이 다양하니, 체력·시간에 맞게 조합해 보실 수 있습니다. 방문 전 코스명을 알려 주시면 준비가 수월합니다.",
     greeting: "서울 테마 코스 상담 — 원하시는 라인(건식/스웨디시)만 알려 주세요.",
@@ -222,19 +236,19 @@ const copyByName = {
     greeting: "서울 야간 출장 — 오늘 밤 시간대만 먼저 알려 주시면 됩니다.",
     detailAddress: "서울 전역 기준 야간 홈타이 · 일부 지역 상담",
   },
-  "24시 슴살화끈색녀": {
+  "24시 홈케어 힐링": {
     description:
       "서울 전역 상담 가능한 24시 부스 스타일 출장입니다. 스포츠·오일·스웨·VVIP까지 폭넓게 운영하며, 당일 컨디션에 따라 강도 조절을 요청하실 수 있습니다. 일부 지역은 협의가 필요합니다.",
     greeting: "서울 24시 — 지금 몸은 뻐근한지, 뻐근+이완 둘 다 필요한지 알려 주세요.",
     detailAddress: "서울 홈타이 · 24시(유선 기준) · 일부 지역 상담",
   },
-  "BJ 발정난 색끼년 출장": {
+  "믹스 스웨 힐링 출장": {
     description:
       "서울 기준 한·태 라인이 섞인 출장입니다. 건식으로 시작해 스웨디시·VVIP로 이어지는 식의 단계형 코스가 특징입니다. 빠른 이동을 내세우는 만큼, 정확한 주소·출입 정보를 미리 주시면 원활합니다.",
     greeting: "서울 출장 — 건식으로 시작할지 스웨 위주로 갈지 정해 주세요.",
     detailAddress: "서울 홈타이 · 한·태 라인 · 일부 지역 제한",
   },
-  "란제리 구멍 출장": {
+  "란제리 힐링 출장": {
     description:
       "서울 일대 섬세한 스웨·건식 조합을 내세운 출장입니다. 행복·힐링을 키워드로 두고, 장시간 앉는 직종 분들의 어깨·허리 라인에 맞춘 상담을 드립니다. 일부 지역은 협의 후 방문합니다.",
     greeting: "서울 홈타이 — 오늘은 건식으로 풀고 스웨로 마무리할까요?",

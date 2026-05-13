@@ -31,6 +31,30 @@ function escapeHtml(s) {
     .replace(/"/g, "&quot;");
 }
 
+/** 카드 본문: alt 키워드(서울 전지역 출장마사지·상호·요금)를 도입에 포함 */
+function buildShopCardGreetingEscaped(card, m) {
+  const altLine = String(card.alt || "").trim();
+  const body = String((m && m.description) || card.description || card.greeting || "").trim();
+  const name = String(card.name || "").trim();
+  const price = String(card.price || "").trim();
+  const fallbackLead =
+    name && price
+      ? `서울 전지역 출장마사지 ${name} — ${price}`
+      : name
+        ? `서울 전지역 출장마사지 ${name}`
+        : "서울 전지역 출장마사지";
+  const lead = altLine || fallbackLead;
+  if (!body) {
+    return escapeHtml(`${lead}. 홈타이·출장 상담으로 일정·코스를 안내합니다.`);
+  }
+  const norm = body.replace(/\s+/g, " ").trim();
+  const leadNorm = lead.replace(/\s+/g, " ").trim();
+  if (norm.startsWith(leadNorm) || norm.startsWith(leadNorm + ".")) {
+    return escapeHtml(body);
+  }
+  return escapeHtml(`${lead}. ${body}`);
+}
+
 function normPhone(p) {
   return String(p || "").replace(/\D/g, "");
 }
@@ -83,8 +107,7 @@ function buildArticleHtml(card, shops) {
   const phone = String((m && m.phone) || card.phone || "").trim();
   const telDigits = normPhone(phone);
   const phoneEsc = escapeHtml(phone);
-  const descRaw = String((m && m.description) || card.description || "").trim();
-  const descEsc = escapeHtml(descRaw);
+  const descEsc = buildShopCardGreetingEscaped(card, m);
 
   const services = (m && m.services) || card.services;
   const tagList = Array.isArray(services)

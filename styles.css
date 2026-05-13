@@ -190,49 +190,115 @@ body {
   border-color: var(--accent);
 }
 
-/* 홈: 데스크톱에서만 등록 업체(#shops)를 오늘의 글(#blog-posts) 위에 표시 */
+/* 홈: 데스크톱 — 시각 순서 히어로 → 등록 업체 → 관련 사이트 → 오늘의 글·초안 (DOM과 동일, flex로 통일) */
 @media (min-width: 769px) {
-  .home-shops-blog-wrap {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .home-shops-blog-wrap .home-reorder-shops {
-    order: 1;
-  }
-
-  .home-shops-blog-wrap .home-reorder-blog {
-    order: 2;
-  }
-}
-
-/* 모바일: 메인에서 업체·글 블록을 히어로보다 위에 — 블록 안에서는 업체 → 글 순 */
-@media (max-width: 768px) {
   #main.home-layout {
     display: flex;
     flex-direction: column;
   }
 
   #main.home-layout > .hero {
-    order: 2;
+    order: 1;
   }
 
   #main.home-layout > .home-shops-blog-wrap {
-    order: 1;
+    order: 2;
+  }
+
+  #main.home-layout > #related-sites {
+    order: 3;
+  }
+
+  #main.home-layout > #blog-posts {
+    order: 4;
+  }
+
+  #main.home-layout > #about {
+    order: 5;
+  }
+
+  #main.home-layout > #regions {
+    order: 6;
+  }
+
+  #main.home-layout > #highlights {
+    order: 7;
+  }
+
+  #main.home-layout > #services {
+    order: 8;
+  }
+
+  #main.home-layout > #process {
+    order: 9;
+  }
+
+  #main.home-layout > #notice {
+    order: 10;
+  }
+
+  #main.home-layout > #faq {
+    order: 11;
+  }
+
+  #main.home-layout > #contact {
+    order: 12;
+  }
+}
+
+/* 모바일: 업체 → 히어로 → 관련 사이트 → 오늘의 글·초안 → 이하 */
+@media (max-width: 768px) {
+  #main.home-layout {
     display: flex;
     flex-direction: column;
   }
 
-  .home-shops-blog-wrap .home-reorder-shops {
+  #main.home-layout > .home-shops-blog-wrap {
     order: 1;
   }
 
-  .home-shops-blog-wrap .home-reorder-blog {
+  #main.home-layout > .hero {
     order: 2;
   }
 
-  #main.home-layout > *:not(.hero):not(.home-shops-blog-wrap) {
+  #main.home-layout > #related-sites {
     order: 3;
+  }
+
+  #main.home-layout > #blog-posts {
+    order: 4;
+  }
+
+  #main.home-layout > #about {
+    order: 5;
+  }
+
+  #main.home-layout > #regions {
+    order: 6;
+  }
+
+  #main.home-layout > #highlights {
+    order: 7;
+  }
+
+  #main.home-layout > #services {
+    order: 8;
+  }
+
+  #main.home-layout > #process {
+    order: 9;
+  }
+
+  #main.home-layout > #notice {
+    order: 10;
+  }
+
+  #main.home-layout > #faq {
+    order: 11;
+  }
+
+  #main.home-layout > #contact {
+    order: 12;
   }
 
   #main.home-layout .home-reorder-shops.shops-main {

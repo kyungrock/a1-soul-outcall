@@ -9,7 +9,8 @@
     "content:draft:no-ai": "node scripts/fetch-daily-draft.mjs --no-ai && npm run blog:manifest",
     "content:draft:force": "node scripts/fetch-daily-draft.mjs --force && npm run blog:manifest",
     "content:draft:force:no-ai": "node scripts/fetch-daily-draft.mjs --no-ai --force && npm run blog:manifest",
-    "shop:cards": "node scripts/render-static-shop-cards.mjs"
+    "shop:cards": "node scripts/render-static-shop-cards.mjs",
+    "images:outcall": "node scripts/fetch-outcall-images.mjs"
   },
   "dependencies": {
     "rss-parser": "^3.13.0"

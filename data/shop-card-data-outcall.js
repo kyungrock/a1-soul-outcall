@@ -14,7 +14,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '70,000원~',
   description: '서울 전역 홈타이를 기준으로 한 출장 케어입니다. 연락 주시는 동선에 맞춰 방문 일정을 잡고, 스포츠·오일·스웨디시 등 코스별로 몸의 긴장을 풀어 드립니다. 야간·새벽 예약도 상담으로 조율 가능합니다.',
-  image: 'https://msg1000.com/images/20대인스타이쁜이.jpg',
+  image: 'images/20대인스타이쁜이.jpg',
   alt: '서울 전지역 출장마사지 20대 인스타이쁜이 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -51,7 +51,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '70,000원~',
   description: '서울 일대 루틴 피로에 맞춘 출장형 힐링입니다. 시내 동선 위주로 이동하며, 가벼운 스트레칭부터 오일·스웨디시까지 단계를 나눠 받을 수 있습니다. 첫 이용이어도 코스 안내를 차분히 도와드립니다.',
-  image: 'https://msg1000.com/images/한국20대이쁜이.jpg',
+  image: 'images/한국20대이쁜이.jpg',
   alt: '서울 전지역 출장마사지 한국 20대 이쁜이 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -88,7 +88,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '70,000원~',
   description: '서울을 중심으로 연중 상담 가능한 출장 서비스입니다. 혼혈 라인 특성에 맞춰 부드러운 압과 리듬을 조절하고, 장시간 근무 후 회복용 코스를 추천해 드립니다. 전화 꺼짐 시 휴무일 수 있으니 재문의 부탁드립니다.',
-  image: 'https://msg1000.com/images/24시한국일본혼혈.jpg',
+  image: 'images/24시한국일본혼혈.jpg',
   alt: '서울 전지역 출장마사지 24시 한국일본혼혈 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 365일 연중무휴',
@@ -125,7 +125,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '100,000원~',
   description: '서울 일대 VIP 홈케어 스타일의 출장입니다. 한국인 관리사 위주로 구성되어 있으며, 프라이빗한 공간에서 집중 케어를 원하시는 분께 맞춥니다. 스웨디시·프리미엄 위주 상담을 권해 드립니다.',
-  image: 'https://msg1000.com/images/VVIP20대여신한국인홈케어.jpg',
+  image: 'images/VVIP20대여신한국인홈케어.jpg',
   alt: '서울 전지역 출장마사지 20대 여신 한국인 — 100,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -150,7 +150,7 @@ window.outcallShopCardData = [
 
 {
   id: 13,
-  name: 'T팬티 콜걸',
+  name: 'T팬티 테라피 출장',
   type: '출장마사지',
   country: 'korea,Thailand',
   region: '서울',
@@ -162,8 +162,8 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '60,000원~',
   description: '서울 시내 위주로 이동하는 테마형 출장 코스입니다. 건식·스웨디시·믹스 등 단계별 옵션이 다양하니, 체력·시간에 맞게 조합해 보실 수 있습니다. 방문 전 코스명을 알려 주시면 준비가 수월합니다.',
-  image: 'https://msg1000.com/images/T팬티콜걸.jpg',
-  alt: '서울 전지역 출장마사지 T팬티 콜걸 — 60,000원~',
+  image: 'images/T팬티콜걸.jpg',
+  alt: '서울 전지역 출장마사지 T팬티 테라피 출장 — 60,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
   file: 'company-seoul-tpanty-callgirl-outcall.html',
@@ -174,13 +174,13 @@ window.outcallShopCardData = [
       author: '리프레시님',
       rating: 5,
       date: '2025-11-25',
-      review: '서울 집에서 T팬티 콜걸 출장마사지 받았어요. T팬티 본선전 센슈얼스웨디시 받았는데 20대 미녀 관리사분이 정말 짜릿한 손맛으로 해주셔서 너무 만족스러웠어요. 홈타이라 원하는 장소에서 받을 수 있어서 편했고, 서울 전역이라 접근성도 좋았습니다. 다음에도 또 부를 예정이에요.'
+      review: '서울 집에서 T팬티 테라피 출장 출장마사지 받았어요. T팬티 본선전 센슈얼스웨디시 받았는데 20대 미녀 관리사분이 정말 짜릿한 손맛으로 해주셔서 너무 만족스러웠어요. 홈타이라 원하는 장소에서 받을 수 있어서 편했고, 서울 전역이라 접근성도 좋았습니다. 다음에도 또 부를 예정이에요.'
     },
     {
       author: '블루문님',
       rating: 5,
       date: '2025-11-25',
-      review: '서울에서 T팬티 콜걸 출장마사지 받았어요. T팬티 결승전 전신혼합 VVIP 받았는데 전원 20대 실력파 여 관리사분이 정말 최선을 다해 해주셔서 몸이 한결 가벼워졌어요. 단골이 많은곳은 이유가 있다는 걸 느꼈어요. 홈타이라 원하는 장소에서 받을 수 있어서 편리했습니다.'
+      review: '서울에서 T팬티 테라피 출장 출장마사지 받았어요. T팬티 결승전 전신혼합 VVIP 받았는데 전원 20대 실력파 여 관리사분이 정말 최선을 다해 해주셔서 몸이 한결 가벼워졌어요. 단골이 많은곳은 이유가 있다는 걸 느꼈어요. 홈타이라 원하는 장소에서 받을 수 있어서 편리했습니다.'
     }
   ]
 },
@@ -199,7 +199,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '70,000원~',
   description: '서울에서 만나는 20대 라인 출장 홈타이입니다. 스포츠성 압과 오일 힐링을 번갈아 선택할 수 있어, 운동 부족·모니터 피로 둘 다 잡고 싶을 때 무난합니다. 믹스·한국인 스웨 등 옵션은 상담 시 안내합니다.',
-  image: 'https://msg1000.com/images/20대이쁘니탱글출장.jpg',
+  image: 'images/20대이쁘니탱글출장.jpg',
   alt: '서울 전지역 출장마사지 20대 탱글 출장 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -230,7 +230,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '70,000원~',
   description: '서울 기준 출발하는 유러피언 감성 라인입니다. 같은 부위를 오래 두드리기보다, 전신 순환에 맞춘 박자로 풀어 드리는 스타일을 지향합니다. 야근 직후·주말 루틴용으로 문의가 많은 편입니다.',
-  image: 'https://msg1000.com/images/우크라이나출장.jpg',
+  image: 'images/우크라이나출장.jpg',
   alt: '서울 전지역 출장마사지 우크라이나출장 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -261,7 +261,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '60,000원~',
   description: '서울 시내 동선에 맞춘 혼혈·혼합 라인 출장입니다. 소통 위주로 진행되는 코스가 있어 첫 방문도 부담이 적은 편입니다. VIP·VVIP 등 심화 코스는 시간 여유 있을 때 추천드립니다.',
-  image: 'https://msg1000.com/images/출장마사지_도쿄핫.jpg',
+  image: 'images/출장마사지_도쿄핫.jpg',
   alt: '서울 전지역 출장마사지 도쿄핫 — 60,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 365일 연중무휴',
@@ -292,7 +292,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '60,000원~',
   description: '서울 방문 위주의 집중 케어형 출장입니다. 짧은 시간에 핵심 부위를 풀어 주는 코스부터 풀 바디 옵션까지 단계가 나뉘어 있으니, 당일 컨디션에 맞게 고르시면 됩니다. 재방문 할인 등은 업체 정책을 확인해 주세요.',
-  image: 'https://msg1000.com/images/출장마사지_원정녀.jpg',
+  image: 'images/출장마사지_원정녀.jpg',
   alt: '서울 전지역 출장마사지 원정녀 — 60,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 365일 연중무휴',
@@ -323,7 +323,7 @@ window.outcallShopCardData = [
   reviewCount: 0,
   price: '50,000원~',
   description: '서울 일대 1인 위주 혼혈 출장 샵입니다. 타이·아로마·스웨디시 등 아시아계 기법을 섞어 받을 수 있어, 여행·출장 직후 몸을 풀기 좋습니다. 최소 예약 시간은 코스별로 다를 수 있습니다.',
-  image: 'https://msg1000.com/images/출장마사지_재팬혼혈.jpg',
+  image: 'images/출장마사지_재팬혼혈.jpg',
   alt: '서울 전지역 출장마사지 재팬혼혈출장 — 50,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -354,7 +354,7 @@ window.outcallShopCardData = [
   reviewCount: 1,
   price: '70,000원~',
   description: '서울 시내 동선을 기준으로 빠른 방문을 지향하는 출장입니다. 타이·아로마·VIP 힐링 등 가벼운 코스부터 긴 코스까지 선택지가 있으며, 일부 동선은 사정상 어려울 수 있으니 상담 시 확인 부탁드립니다.',
-  image: 'https://msg1000.com/images/출장마사지_비키니출장.jpg',
+  image: 'images/출장마사지_비키니출장.jpg',
   alt: '서울 전지역 출장마사지 비키니출장 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)',
@@ -385,7 +385,7 @@ window.outcallShopCardData = [
   reviewCount: 1,
   price: '130,000원~',
   description: '서울 중심 프리미엄 홈케어 출장입니다. 스웨디시 위주의 깊은 이완을 원하시는 분께 맞추었고, 가격대가 높은 만큼 시간·공간 여유를 두고 예약하시는 것을 권합니다. 한국인 관리사 위주 구성입니다.',
-  image: 'https://msg1000.com/images/출장마사지_vip20대힐링_한국홈케어.jpg',
+  image: 'images/출장마사지_vip20대힐링_한국홈케어.jpg',
   alt: '서울 전지역 출장마사지 VIP 20대 한국홈케어 — 130,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 연중무휴 (폰이꺼진경우: 마감OR랜덤휴무)',
@@ -416,7 +416,7 @@ window.outcallShopCardData = [
   reviewCount: 1,
   price: '140,000원~',
   description: '서울 야간대에 강점을 둔 출장입니다. 한국·일본 라인이 섞여 있어 손맛 스타일을 고르실 수 있습니다. 운영이 밤 시간대에 몰려 있으니, 방문 전 반드시 통화 가능 여부를 확인해 주세요.',
-  image: 'https://msg1000.com/images/출장마사지_쏘핫.jpg',
+  image: 'images/출장마사지_쏘핫.jpg',
   alt: '서울 전지역 출장마사지 쏘핫 — 140,000원~',
   services: ['출장마사지'],
   operatingHours: '오후 8시 ~ 아침 06시 (폰OFF시: 마감OR랜덤휴무)',
@@ -435,7 +435,7 @@ window.outcallShopCardData = [
 
 {
   id: 26,
-  name: '24시 슴살화끈색녀',
+  name: '24시 홈케어 힐링',
   type: '출장마사지',
   country: 'korea,japan,Thailand',
   region: '서울',
@@ -447,8 +447,8 @@ window.outcallShopCardData = [
   reviewCount: 1,
   price: '70,000원~',
   description: '서울 전역 상담 가능한 24시 부스 스타일 출장입니다. 스포츠·오일·스웨·VVIP까지 폭넓게 운영하며, 당일 컨디션에 따라 강도 조절을 요청하실 수 있습니다. 일부 지역은 협의가 필요합니다.',
-  image: 'https://msg1000.com/images/출장마사지_슴살화끈색녀.jpg',
-  alt: '서울 전지역 출장마사지 24시 슴살화끈색녀 — 70,000원~',
+  image: 'images/출장마사지_슴살화끈색녀.jpg',
+  alt: '서울 전지역 출장마사지 24시 홈케어 힐링 — 70,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이꺼진경우: 마감, 랜덤 휴무)',
   file: 'company-seoul-24hour-sexy-outcall.html',
@@ -459,14 +459,14 @@ window.outcallShopCardData = [
       author: '사랑의님',
       rating: 5,
       date: '2025-11-30',
-      review: '서울 집에서 24시 슴살화끈색녀 출장마사지 받았어요. 감성힐링 스웨디시 A코스 받았는데 20대 힐러 관리사분이 정말 부드럽고 정성스럽게 해주셔서 몸이 한결 가벼워졌어요. 발빠르게 와주셔서 빠른 서비스도 좋았고, 24시간 운영이라 언제든지 받을 수 있어서 편리했습니다.'
+      review: '서울 집에서 24시 홈케어 힐링 출장마사지 받았어요. 감성힐링 스웨디시 A코스 받았는데 20대 힐러 관리사분이 정말 부드럽고 정성스럽게 해주셔서 몸이 한결 가벼워졌어요. 발빠르게 와주셔서 빠른 서비스도 좋았고, 24시간 운영이라 언제든지 받을 수 있어서 편리했습니다.'
     }
   ]
 },
 
 {
   id: 31,
-  name: 'BJ 발정난 색끼년 출장',
+  name: '믹스 스웨 힐링 출장',
   type: '출장마사지',
   country: 'korea,Thailand',
   region: '서울',
@@ -478,8 +478,8 @@ window.outcallShopCardData = [
   reviewCount: 1,
   price: '60,000원~',
   description: '서울 기준 한·태 라인이 섞인 출장입니다. 건식으로 시작해 스웨디시·VVIP로 이어지는 식의 단계형 코스가 특징입니다. 빠른 이동을 내세우는 만큼, 정확한 주소·출입 정보를 미리 주시면 원활합니다.',
-  image: 'https://msg1000.com/images/출장마사지_BJ발정난색끼년출장.jpg',
-  alt: '서울 전지역 출장마사지 BJ 발정난 색끼년 출장 — 60,000원~',
+  image: 'images/출장마사지_BJ발정난색끼년출장.jpg',
+  alt: '서울 전지역 출장마사지 믹스 스웨 힐링 출장 — 60,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이꺼진경우: 마감, 랜덤 휴무)',
   file: 'company-seoul-bj-sexy-outcall.html',
@@ -490,14 +490,14 @@ window.outcallShopCardData = [
       author: '편안한하루님',
       rating: 5,
       date: '2025-11-30',
-      review: '서울 집에서 BJ 발정난 색끼년 출장 출장마사지 받았어요. BJ 시원한 건식테라피 A코스 받았는데 20대 한국.태국 여 쌤들이 정말 친절하고 따뜻하게 해주셔서 몸과 마음이 동시에 힐링되었어요. 빠른이동으로 빠른 서비스도 좋았고, 24시간 운영이라 언제든지 받을 수 있어서 편리했습니다.'
+      review: '서울 집에서 믹스 스웨 힐링 출장 출장마사지 받았어요. 시원한 건식테라피 A코스 받았는데 20대 한국.태국 여 쌤들이 정말 친절하고 따뜻하게 해주셔서 몸과 마음이 동시에 힐링되었어요. 빠른이동으로 빠른 서비스도 좋았고, 24시간 운영이라 언제든지 받을 수 있어서 편리했습니다.'
     }
   ]
 },
 
 {
   id: 33,
-  name: '란제리 구멍 출장',
+  name: '란제리 힐링 출장',
   type: '출장마사지',
   country: 'korea,Thailand',
   region: '서울',
@@ -509,8 +509,8 @@ window.outcallShopCardData = [
   reviewCount: 1,
   price: '60,000원~',
   description: '서울 일대 섬세한 스웨·건식 조합을 내세운 출장입니다. 행복·힐링을 키워드로 두고, 장시간 앉는 직종 분들의 어깨·허리 라인에 맞춘 상담을 드립니다. 일부 지역은 협의 후 방문합니다.',
-  image: 'https://msg1000.com/images/출장마사지_란제리구멍출장.jpg',
-  alt: '서울 전지역 출장마사지 란제리 구멍 출장 — 60,000원~',
+  image: 'images/출장마사지_란제리구멍출장.jpg',
+  alt: '서울 전지역 출장마사지 란제리 힐링 출장 — 60,000원~',
   services: ['출장마사지'],
   operatingHours: '24시간 (폰이꺼진경우: 마감, 랜덤 휴무)',
   file: 'company-seoul-lingerie-hole-outcall.html',
@@ -521,7 +521,7 @@ window.outcallShopCardData = [
       author: '편안한하루님',
       rating: 5,
       date: '2025-11-30',
-      review: '서울 집에서 란제리 구멍 출장 출장마사지 받았어요. 란제리 꾸욱 건식테라피 A코스 받았는데 20대 실력파 여 쌤들이 정말 친절하고 따뜻하게 해주셔서 몸과 마음이 동시에 힐링되었어요. 행복을 전달하는 출장 마사지샵이라 언제나 최선을 다해주셔서 만족스러웠고, 24시간 운영이라 언제든지 받을 수 있어서 편리했습니다.'
+      review: '서울 집에서 란제리 힐링 출장 출장마사지 받았어요. 란제리 꾸욱 건식테라피 A코스 받았는데 20대 실력파 여 쌤들이 정말 친절하고 따뜻하게 해주셔서 몸과 마음이 동시에 힐링되었어요. 행복을 전달하는 출장 마사지샵이라 언제나 최선을 다해주셔서 만족스러웠고, 24시간 운영이라 언제든지 받을 수 있어서 편리했습니다.'
     }
   ]
 }
