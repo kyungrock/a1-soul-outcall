@@ -8,7 +8,7 @@
  *
  * 환경변수 SITE_URL 가 있으면 seo-config 보다 우선합니다.
  *
- * 하는 일: sitemap.xml, robots.txt 생성 + `.nojekyll`(GitHub Pages 정적 전용) + 정적 HTML 절대 메타 주입(index, shops, shop-detail, blog-article, region-*.html, dist-*.html)
+ * 하는 일: sitemap.xml, robots.txt 생성 + `.nojekyll`(GitHub Pages 정적 전용) + 정적 HTML 절대 메타 주입(index, shops, shop-detail, blog-article, blog/*.html, region-*.html, dist-*.html)
  */
 import fs from "fs";
 import path from "path";
@@ -85,6 +85,16 @@ function loadBlogDraftSlugs() {
     .filter((slug) => /^[\w.-]+$/.test(slug));
 }
 
+/** blog/*.html — 서울 구별 전문 정적 글 (build-seoul-blog-board.mjs) */
+function loadBlogStaticPages() {
+  const dir = path.join(ROOT, "blog");
+  if (!fs.existsSync(dir)) return [];
+  return fs
+    .readdirSync(dir)
+    .filter((name) => /^[\w.-]+\.html$/i.test(name))
+    .sort();
+}
+
 function loadDistrictStaticPages() {
   const p = path.join(ROOT, "data", "district-static-pages.json");
   if (!fs.existsSync(p)) return [];
@@ -138,6 +148,9 @@ function writeSitemapAndRobots(effectiveUrl) {
   for (const name of loadDistrictStaticPages()) {
     urls.add(`${effectiveUrl}/${name}`);
   }
+  for (const name of loadBlogStaticPages()) {
+    urls.add(`${effectiveUrl}/blog/${name}`);
+  }
   const sortedUrls = Array.from(urls).sort();
   const lastmod = new Date().toISOString().slice(0, 10);
 
@@ -159,6 +172,10 @@ function writeSitemapAndRobots(effectiveUrl) {
         priority = "0.62";
       } else if (/\/blog-article\.html$/.test(loc)) {
         priority = "0.65";
+      } else if (/\/blog\/seoul-home\.html$/.test(loc)) {
+        priority = "0.67";
+      } else if (/\/blog\/seoul-[^/]+\.html$/.test(loc)) {
+        priority = "0.64";
       }
       return `  <url>
     <loc>${xmlEscape(loc)}</loc>
