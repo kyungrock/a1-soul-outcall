@@ -4,12 +4,14 @@
  *
  * 카드·매칭 데이터 수정 후 실행:
  *   npm run shop:cards
+ *   (완료 후 서울 구 dist-seoul-*.html 에도 동일 카드 블록이 반영됩니다.)
  *
  * 마커: <!--STATIC_SHOP_CARDS_BEGIN--> … <!--STATIC_SHOP_CARDS_END-->
  */
 import fs from "fs";
 import path from "path";
 import vm from "vm";
+import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -201,6 +203,10 @@ function main() {
   console.log(
     `[shop:cards] ${cards.length}개 카드 → index.html, shops.html (소스에 <article> 삽입 완료)`
   );
+
+  const syncScript = path.join(__dirname, "sync-seoul-district-registered-shops-from-index.mjs");
+  const r = spawnSync(process.execPath, [syncScript], { cwd: ROOT, stdio: "inherit" });
+  if (r.status !== 0) process.exit(r.status ?? 1);
 }
 
 main();

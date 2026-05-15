@@ -79,11 +79,18 @@ function main() {
       meta.date ||
       (/^(\d{4}-\d{2}-\d{2})-/.exec(slug) || [])[1] ||
       "";
+    const series = (meta.series || "").trim();
+    const region_path = (meta.region_path || "").trim();
+    const cover_image = (meta.cover_image || "").trim();
+
     items.push({
       slug,
       title: title.trim(),
       date,
       excerpt: excerptFromBody(body),
+      series: series || undefined,
+      region_path: region_path || undefined,
+      cover_image: cover_image || undefined,
       /** file:// 포함 어디서든 본문 표시 가능하도록 초안 원문 전체(UTF-8) */
       mdSource: raw,
     });

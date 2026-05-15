@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420" role="img" aria-label="Jongno district wellness banner">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b4332"/>
+      <stop offset="55%" stop-color="#2d6a4f"/>
+      <stop offset="100%" stop-color="#40916c"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#g1)"/>
+  <circle cx="620" cy="90" r="110" fill="#ffffff" opacity="0.07"/>
+  <circle cx="130" cy="330" r="85" fill="#ffffff" opacity="0.05"/>
+  <path d="M0 285 Q200 205 400 245 T800 225 L800 420 L0 420 Z" fill="#0d2818" opacity="0.38"/>
+  <path d="M80 265 L400 145 L720 265 L720 292 L80 292 Z" fill="none" stroke="#d8f3dc" stroke-width="3" opacity="0.5"/>
+  <path d="M120 268 L400 170 L680 268" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.28"/>
+  <line x1="48" y1="88" x2="320" y2="88" stroke="#b7e4c7" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+  <line x1="48" y1="108" x2="260" y2="108" stroke="#95d5b2" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <text x="48" y="360" fill="#95d5b2" font-family="Segoe UI,system-ui,sans-serif" font-size="13" opacity="0.9">soul-outcall</text>
+</svg>

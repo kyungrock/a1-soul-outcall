@@ -250,6 +250,96 @@ body {
   gap: 0.75rem;
 }
 
+/* 구(자치구) 랜딩 — 짧은 홍보 + 배너 이미지 */
+.district-promo {
+  margin: 0 0 1.75rem;
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+.district-promo h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.2rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.district-promo-intro {
+  margin: 0 0 0.75rem;
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+.district-promo-body {
+  margin: 0 0 0.8rem;
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.72;
+}
+
+.district-promo-list {
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.district-promo-list li {
+  margin-bottom: 0.35rem;
+}
+
+.district-promo-note {
+  margin: 0 0 1.1rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.district-promo-visuals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.85rem;
+}
+
+.district-promo-visuals figure {
+  margin: 0;
+}
+
+.district-promo-visuals img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.district-promo-visuals figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* 종로: PC에서는 등록 업체 아래에만 프로모, 모바일은 히어로 안 유지 */
+@media (min-width: 769px) {
+  .district-promo--in-hero {
+    display: none;
+  }
+
+  #main.home-layout > .district-promo--below-shops {
+    order: 3;
+    margin-top: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .district-promo--below-shops {
+    display: none;
+  }
+}
+
 .region-landing-main {
   padding-bottom: 2.5rem;
 }
@@ -931,12 +1021,130 @@ body {
   color: var(--accent);
 }
 
+.blog-draft-help {
+  font-size: 0.92rem;
+  margin-top: -0.35rem;
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.blog-draft-help code {
+  font-size: 0.84em;
+}
+
 .blog-draft-empty {
   margin: 0;
   padding: 1.5rem;
   border: 1px dashed var(--border);
   border-radius: var(--radius);
   background: rgba(233, 245, 239, 0.25);
+}
+
+.blog-draft-series {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.15rem;
+}
+
+.blog-draft-card--has-thumb {
+  padding: 0;
+  overflow: hidden;
+}
+
+.blog-draft-card--has-thumb .blog-draft-thumb {
+  display: block;
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-draft-card--has-thumb .blog-draft-date,
+.blog-draft-card--has-thumb .blog-draft-title,
+.blog-draft-card--has-thumb .blog-draft-excerpt,
+.blog-draft-card--has-thumb .blog-draft-more {
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+}
+
+.blog-draft-card--has-thumb .blog-draft-series {
+  padding-left: 1.15rem;
+  padding-right: 1.15rem;
+  padding-top: 0.65rem;
+}
+
+.blog-draft-card--has-thumb .blog-draft-more {
+  padding-bottom: 1.1rem;
+}
+
+.blog-draft-pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.blog-draft-page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.35rem;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.blog-draft-page-btn:hover {
+  border-color: var(--accent);
+  background: rgba(45, 106, 79, 0.06);
+}
+
+.blog-draft-page-btn--current {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+.blog-draft-page-btn--disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.blog-draft-page-ellipsis {
+  padding: 0 0.15rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.blog-draft-page-meta {
+  width: 100%;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
+.article-cover {
+  margin: 0 0 1.5rem;
+}
+
+.article-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
 }
 
 .blog-article-layout {
@@ -1078,5 +1286,229 @@ body {
   .site-nav {
     order: 3;
     width: 100%;
+  }
+}
+
+/* --- RSS 자동 반영: 서울·구 하부「오늘의 글·초안」카드 (scripts/fill-seoul-blog-posts-from-rss.mjs) --- */
+.seoul-auto-blog-card {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 0.5rem;
+  padding: 1.25rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface, #fff);
+}
+
+@media (min-width: 720px) {
+  .seoul-auto-blog-card {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    align-items: start;
+  }
+}
+
+.seoul-auto-blog-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 2px);
+  border: 1px solid var(--border);
+  background: var(--bg-muted, #f5f5f5);
+}
+
+.seoul-auto-blog-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.seoul-auto-blog-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+}
+
+.seoul-auto-blog-text p {
+  margin: 0 0 0.65rem;
+  line-height: 1.65;
+}
+
+.seoul-auto-blog-text p:last-child {
+  margin-bottom: 0;
+}
+
+.seoul-auto-blog-source {
+  margin: 1rem 0 0.75rem;
+}
+
+.seoul-auto-blog-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
+}
+
+.seoul-auto-blog-nav .btn {
+  font-size: 0.82rem;
+  padding: 0.35rem 0.65rem;
+}
+
+/* --- 수동 주입 SEO 블록 (scripts/inject-seoul-seo-blog-html.mjs) --- */
+.seoul-seo-blog {
+  margin-top: 0.75rem;
+  max-width: 48rem;
+}
+
+.seoul-seo-blog-title {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+  line-height: 1.35;
+  font-weight: 700;
+}
+
+.seoul-seo-blog-h3 {
+  margin: 1.35rem 0 0.45rem;
+  font-size: 1.02rem;
+  font-weight: 650;
+}
+
+.seoul-seo-blog-disclaimer {
+  margin: 0 0 1rem;
+}
+
+.seoul-seo-blog p {
+  margin: 0 0 0.85rem;
+  line-height: 1.72;
+  font-size: 0.98rem;
+}
+
+.seoul-seo-blog-list {
+  margin: 0.5rem 0 1rem 1.1rem;
+  padding: 0;
+  line-height: 1.65;
+  font-size: 0.96rem;
+}
+
+.seoul-seo-blog-list li {
+  margin-bottom: 0.35rem;
+}
+
+.seoul-seo-blog-links a {
+  font-weight: 600;
+}
+
+.seoul-seo-blog-figure {
+  margin: 0 0 1.1rem;
+}
+
+.seoul-seo-blog-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.seoul-seo-blog-figure figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* 오늘의 글·초안 — 게시판형 요약 카드 */
+.blog-board {
+  margin-top: 0.75rem;
+}
+
+.blog-board-card {
+  display: grid;
+  grid-template-columns: minmax(0, 140px) minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface, #fff);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.blog-board-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.blog-board-thumb {
+  display: block;
+  overflow: hidden;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+.blog-board-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.blog-board-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.blog-board-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.blog-board-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text, #1a1a1a);
+}
+
+.blog-board-excerpt {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.blog-board-shop-line {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text, #333);
+}
+
+.blog-board-cta {
+  margin-top: 0.25rem;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--accent);
+}
+
+.seoul-blog-full .seoul-blog-article-body p {
+  line-height: 1.72;
+  margin: 0 0 0.85rem;
+}
+
+.seoul-blog-shop-box {
+  margin: 1rem 0;
+  padding-left: 1.1rem;
+}
+
+@media (max-width: 560px) {
+  .blog-board-card {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-board-thumb {
+    max-height: 180px;
   }
 }

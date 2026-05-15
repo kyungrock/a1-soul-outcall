@@ -120,7 +120,7 @@ ${dropdownDist("region-jeolla.html", "전라", "jeolla", jeolla)}
 ${dropdownDist("region-gangwon.html", "강원", "gangwon", gangwon)}
 ${dropdownDist("region-jeju.html", "제주", "jeju", jeju)}
     <li><a href="shops.html">업체</a></li>
-    <li><a href="index.html#blog-posts">글</a></li>
+    <li><a href="index.html">글</a></li>
   </ul>
 </nav>`;
 

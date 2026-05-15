@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420" role="img" aria-label="은평출장마사지 안내 배너">
+  <defs>
+    <linearGradient id="grad-eunpyeong-1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="hsl(306 42% 22%)"/>
+      <stop offset="55%" stop-color="hsl(346 38% 32%)"/>
+      <stop offset="100%" stop-color="hsl(16 35% 44%)"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#grad-eunpyeong-1)"/>
+  <circle cx="620" cy="90" r="110" fill="#ffffff" opacity="0.06"/>
+  <circle cx="130" cy="330" r="85" fill="#ffffff" opacity="0.04"/>
+  <path d="M0 285 Q200 205 400 245 T800 225 L800 420 L0 420 Z" fill="#000000" opacity="0.22"/>
+  <rect x="36" y="118" width="728" height="168" rx="18" fill="#000000" opacity="0.32"/>
+  <text x="400" y="200" text-anchor="middle" fill="#f8fffe" font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="40" font-weight="700">은평출장마사지</text>
+  <text x="400" y="252" text-anchor="middle" fill="#e8f5f0" font-family="'Malgun Gothic','Apple SD Gothic Neo','Noto Sans KR',sans-serif" font-size="22" font-weight="500">은평홈타이 · 은평출장 · 불광·연신내</text>
+</svg>

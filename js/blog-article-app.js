@@ -67,15 +67,28 @@
       }) || {};
 
     titleEl.textContent = entry.title || slug;
-    if (subEl) subEl.textContent = entry.date ? "등록 일자 · " + entry.date : "";
+    var metaBits = [];
+    if (entry.date) metaBits.push("등록 일자 · " + entry.date);
+    var rp = entry.region_path || entry.series;
+    if (rp) metaBits.push(String(rp));
+    if (subEl) subEl.textContent = metaBits.join(" · ");
 
     var embedded =
       typeof entry.mdSource === "string" && entry.mdSource.length ? entry.mdSource : "";
 
+    var cover = entry.cover_image ? String(entry.cover_image).trim() : "";
+    var coverHtml = "";
+    if (cover) {
+      coverHtml =
+        '<figure class="article-cover"><img src="' +
+        esc(cover) +
+        '" alt="" width="960" height="480" loading="lazy" /></figure>';
+    }
+
     try {
       if (embedded) {
         titleEl.textContent = parseFrontmatterTitle(embedded, titleEl.textContent);
-        bodyEl.innerHTML = SimpleMd.markdownToHtml(embedded);
+        bodyEl.innerHTML = coverHtml + SimpleMd.markdownToHtml(embedded);
         if (msgEl) msgEl.textContent = "";
         return;
       }
@@ -83,7 +96,7 @@
       var mdPath = "content/drafts/" + encodeURIComponent(slug) + ".md";
       var raw = await fetchText(mdPath);
       titleEl.textContent = parseFrontmatterTitle(raw, titleEl.textContent);
-      bodyEl.innerHTML = SimpleMd.markdownToHtml(raw);
+      bodyEl.innerHTML = coverHtml + SimpleMd.markdownToHtml(raw);
       if (msgEl) msgEl.textContent = "";
     } catch (e) {
       if (msgEl) {

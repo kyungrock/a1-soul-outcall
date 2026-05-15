@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="420" viewBox="0 0 800 420" role="img" aria-label="Relax and course info banner">
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e9f5ef"/>
+      <stop offset="50%" stop-color="#f8fbf9"/>
+      <stop offset="100%" stop-color="#d8f3dc"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#g2)"/>
+  <path d="M0 322 Q150 282 300 302 T600 292 T800 312 L800 420 L0 420 Z" fill="#2d6a4f" opacity="0.12"/>
+  <path d="M0 352 Q200 302 400 332 T800 302 L800 420 L0 420 Z" fill="#40916c" opacity="0.09"/>
+  <g stroke="#2d6a4f" stroke-width="2" fill="none" opacity="0.38">
+    <ellipse cx="400" cy="200" rx="140" ry="70"/>
+    <ellipse cx="400" cy="200" rx="100" ry="48"/>
+    <ellipse cx="400" cy="200" rx="58" ry="26"/>
+  </g>
+  <circle cx="400" cy="198" r="8" fill="#2d6a4f" opacity="0.55"/>
+  <line x1="220" y1="300" x2="580" y2="300" stroke="#40916c" stroke-width="3" stroke-linecap="round" opacity="0.45"/>
+  <line x1="270" y1="328" x2="530" y2="328" stroke="#74c69d" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>
