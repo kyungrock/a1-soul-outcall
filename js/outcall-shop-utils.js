@@ -13,6 +13,12 @@
    */
   function resolveMatchedShopId(card, shops) {
     if (!card || !Array.isArray(shops)) return null;
+    if (card.shopDetailId) {
+      const byDetail = shops.find(function (s) {
+        return s.id === card.shopDetailId;
+      });
+      if (byDetail) return byDetail.id;
+    }
     const p = normPhone(card.phone);
     if (p) {
       const byPhone = shops.find(function (s) {

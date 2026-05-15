@@ -34,7 +34,12 @@ function escapeHtml(s) {
 /** 카드 본문: alt 키워드(서울 전지역 출장마사지·상호·요금)를 도입에 포함 */
 function buildShopCardGreetingEscaped(card, m) {
   const altLine = String(card.alt || "").trim();
-  const body = String((m && m.description) || card.description || card.greeting || "").trim();
+  const body = String(
+    (card.greeting && String(card.greeting).trim()) ||
+      (m && m.description) ||
+      card.description ||
+      ""
+  ).trim();
   const name = String(card.name || "").trim();
   const price = String(card.price || "").trim();
   const fallbackLead =

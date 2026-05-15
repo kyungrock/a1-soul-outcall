@@ -10,7 +10,9 @@
     "content:draft:force": "node scripts/fetch-daily-draft.mjs --force && npm run blog:manifest",
     "content:draft:force:no-ai": "node scripts/fetch-daily-draft.mjs --no-ai --force && npm run blog:manifest",
     "shop:cards": "node scripts/render-static-shop-cards.mjs",
-    "images:outcall": "node scripts/fetch-outcall-images.mjs"
+    "images:outcall": "node scripts/fetch-outcall-images.mjs",
+    "region:nav": "node scripts/gen-region-nav-snippet.mjs",
+    "region:publish": "node scripts/gen-region-nav-snippet.mjs && npm run seo"
   },
   "dependencies": {
     "rss-parser": "^3.13.0"

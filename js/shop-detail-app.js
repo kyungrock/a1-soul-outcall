@@ -109,7 +109,7 @@
       '</h2><ul class="review-list">';
     list.forEach(function (r) {
       var who = r.author || r.name || "";
-      var body = r.review || r.content || r.comment || "";
+      var body = r.review || r.reviewBody || r.content || r.comment || "";
       html +=
         "<li><strong>" +
         escapeHtml(who) +

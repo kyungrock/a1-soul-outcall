@@ -8,7 +8,7 @@
  *
  * 환경변수 SITE_URL 가 있으면 seo-config 보다 우선합니다.
  *
- * 하는 일: sitemap.xml, robots.txt 생성 + index/shops/shop-detail HTML 절대 메타 주입
+ * 하는 일: sitemap.xml, robots.txt 생성 + `.nojekyll`(GitHub Pages 정적 전용) + 정적 HTML 절대 메타 주입(index, shops, shop-detail, blog-article, region-*.html, dist-*.html)
  */
 import fs from "fs";
 import path from "path";
@@ -18,6 +18,17 @@ import { loadSiteUrl, loadOgImageAbsolute } from "./seo-load-site-url.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
+
+/** 지역 랜딩 — scripts/gen-region-nav-snippet.mjs 와 동기화 */
+const REGION_LANDING_PAGES = [
+  "region-gyeonggi.html",
+  "region-incheon.html",
+  "region-chungcheong.html",
+  "region-gyeongsang.html",
+  "region-jeolla.html",
+  "region-gangwon.html",
+  "region-jeju.html",
+];
 
 const MARKER_START = "  <!-- APPLY_SEO_START -->";
 const MARKER_END = "  <!-- APPLY_SEO_END -->";
@@ -74,6 +85,17 @@ function loadBlogDraftSlugs() {
     .filter((slug) => /^[\w.-]+$/.test(slug));
 }
 
+function loadDistrictStaticPages() {
+  const p = path.join(ROOT, "data", "district-static-pages.json");
+  if (!fs.existsSync(p)) return [];
+  try {
+    const arr = JSON.parse(fs.readFileSync(p, "utf8"));
+    return Array.isArray(arr) ? arr : [];
+  } catch {
+    return [];
+  }
+}
+
 function xmlEscape(str) {
   return String(str)
     .replace(/&/g, "&amp;")
@@ -110,6 +132,12 @@ function writeSitemapAndRobots(effectiveUrl) {
   for (const card of cards) {
     urls.add(effectiveUrl + buildDetailPath(card, shops));
   }
+  for (const name of REGION_LANDING_PAGES) {
+    urls.add(`${effectiveUrl}/${name}`);
+  }
+  for (const name of loadDistrictStaticPages()) {
+    urls.add(`${effectiveUrl}/${name}`);
+  }
   const sortedUrls = Array.from(urls).sort();
   const lastmod = new Date().toISOString().slice(0, 10);
 
@@ -121,6 +149,10 @@ function writeSitemapAndRobots(effectiveUrl) {
         priority = "1.0";
       } else if (/\/shops\.html$/.test(loc)) {
         priority = "0.9";
+      } else if (/\/region-[^/]+\.html$/.test(loc)) {
+        priority = "0.72";
+      } else if (/\/dist-[^/]+\.html$/.test(loc)) {
+        priority = "0.68";
       } else if (/\/shop-detail\.html/.test(loc)) {
         priority = "0.75";
       } else if (/\/blog-article\.html\?/.test(loc)) {
@@ -167,6 +199,10 @@ Sitemap: ${effectiveUrl}/sitemap.xml
 `,
     "utf8"
   );
+
+  // GitHub Pages 기본 Jekyll 이 sitemap.xml 등을 건드리며 500 이 나는 경우가 있어 정적 배포로 고정
+  fs.writeFileSync(path.join(ROOT, ".nojekyll"), "", "utf8");
+  console.log("[apply-seo] .nojekyll 유지 (GitHub Pages Jekyll 비활성화)");
 
   return sortedUrls.length;
 }
@@ -284,6 +320,20 @@ const pagesIndex = [
     injectFn: () =>
       SITE_CONFIGURED ? blockForStaticPage(SITE_CONFIGURED, "/blog-article.html") : blockUnset(),
   },
+  ...REGION_LANDING_PAGES.map((file) => ({
+    file,
+    injectFn: () =>
+      SITE_CONFIGURED
+        ? blockForStaticPage(SITE_CONFIGURED, `/${file}`)
+        : blockUnset(),
+  })),
+  ...loadDistrictStaticPages().map((file) => ({
+    file,
+    injectFn: () =>
+      SITE_CONFIGURED
+        ? blockForStaticPage(SITE_CONFIGURED, `/${file}`)
+        : blockUnset(),
+  })),
 ];
 
 for (const { file, injectFn } of pagesIndex) {

@@ -107,6 +107,11 @@ function cardMapByShop(cards) {
   return map;
 }
 
+function shopUsesPreserveLocation(cardName) {
+  const o = copyByName[cardName];
+  return !!(o && o.preserveLocation);
+}
+
 function syncMatchedShopsFromCards(shops, cards) {
   const cmap = cardMapByShop(cards);
   let missing = 0;
@@ -120,9 +125,15 @@ function syncMatchedShopsFromCards(shops, cards) {
       continue;
     }
     s.name = c.name;
-    s.region = "서울";
-    s.district = "서울 전지역";
-    s.address = "서울 전지역";
+    if (shopUsesPreserveLocation(c.name)) {
+      s.region = c.region || "서울";
+      s.district = c.district || "서울";
+      s.address = c.address || "서울";
+    } else {
+      s.region = "서울";
+      s.district = "서울 전지역";
+      s.address = "서울 전지역";
+    }
     s.detailAddress = c.detailAddress;
     s.description = c.description;
     if ("greeting" in s && c.greeting) s.greeting = c.greeting;
@@ -139,6 +150,138 @@ function syncMatchedShopsFromCards(shops, cards) {
     }
   }
   if (missing) console.warn("syncMatchedShopsFromCards unmatched:", missing);
+}
+
+function shopKeyFromCard(c) {
+  return `${normPhone(c.phone)}::${normBizName(c.name)}`;
+}
+
+function shopKeyFromShop(s) {
+  const canon = cardCanonicalNameFromShopDisplayName(s.name);
+  return `${normPhone(s.phone)}::${normBizName(canon)}`;
+}
+
+function jongnoOutcallCourses() {
+  return [
+    {
+      category: "돌담 건식 릴리스",
+      items: [
+        {
+          name: "A코스",
+          price: "75,000원",
+          duration: "60분",
+          description: "목·어깨·견갑 상부 집중, 오일 없음",
+        },
+        {
+          name: "B코스",
+          price: "95,000원",
+          duration: "90분",
+          description: "상체 전반 + 허리 라인, 오일 없음",
+        },
+      ],
+    },
+    {
+      category: "광장가 라이트 오일",
+      items: [
+        {
+          name: "A코스",
+          price: "85,000원",
+          duration: "60분",
+          description: "가벼운 오일, 실내 환기 가능할 때만 권장",
+        },
+        {
+          name: "B코스",
+          price: "110,000원",
+          duration: "90분",
+          description: "오일 + 스웨식 이완, 장시간 앉은 날 추천",
+        },
+      ],
+    },
+  ];
+}
+
+function defaultOutcallCourses() {
+  return [
+    {
+      category: "기본 출장 코스",
+      items: [
+        { name: "A코스", price: "70,000원", duration: "60분", description: "출장 기본 힐링" },
+        { name: "B코스", price: "90,000원", duration: "90분", description: "출장 기본 힐링" },
+      ],
+    },
+  ];
+}
+
+function matchedShopStubFromCard(c) {
+  const o = copyByName[c.name] || defaultCopy;
+  const preserved = !!(o && o.preserveLocation);
+  const id = c.shopDetailId || `seoul_outcall_card_${c.id}`;
+  const courses = preserved ? jongnoOutcallCourses() : defaultOutcallCourses();
+  const baseReviews = Array.isArray(c.reviews)
+    ? c.reviews.map((r) => ({
+        author: r.author || "고객님",
+        rating: r.rating ?? 5,
+        date: r.date || "2026-05-12",
+        reviewBody: "",
+      }))
+    : [];
+  return {
+    id,
+    name: c.name,
+    type: "출장마사지",
+    region: preserved ? c.region || "서울" : "서울",
+    district: preserved ? c.district || "종로" : "서울 전지역",
+    address: preserved ? c.address || "서울 종로구 출장" : "서울 전지역",
+    detailAddress: c.detailAddress || o.detailAddress,
+    phone: c.phone,
+    price: c.price || "70,000원~",
+    operatingHours:
+      c.operatingHours || "24시간 (폰이 꺼진 경우: 마감, 랜덤 휴무)",
+    rating: c.rating ?? 4.9,
+    reviewCount: c.reviewCount ?? (Array.isArray(c.reviews) ? c.reviews.length : 0),
+    image: c.image || "images/outcall-default.jpg",
+    description: c.description || o.description,
+    services: Array.isArray(c.services) && c.services.length ? c.services : ["출장마사지", "스포츠 마사지", "오일 마사지", "스웨디시"],
+    courses,
+    staffInfo: preserved
+      ? "종로·광화문 동선 위주 | 건식·오일 단계 상담 | 출입·계단 정보 사전 확인"
+      : "실력파 라인 | 상기 종목 테라피 과정 수료 | 출장 동선 협의",
+    reviews: baseReviews,
+    features: preserved
+      ? [
+          "광화문·인사·삼청·북촌 일대 동선 협의",
+          "건식 우선 가능(실내 상황에 따라 오일 조절)",
+          "골목·주차 출입 사전 확인",
+          "심야·새벽은 전일 협의",
+          "홈타이 출장",
+        ]
+      : [
+          "서울 홈타이",
+          "24시간 상담(유선 기준)",
+          "출장 동선 협의",
+          "홈타이 서비스",
+        ],
+    coordinates: preserved
+      ? { latitude: 37.5759, longitude: 126.9825 }
+      : { latitude: 37.5665, longitude: 126.978 },
+    status: "active",
+    createdAt: "2026-05-12T02:00:00Z",
+    updatedAt: "2026-05-12T02:00:00Z",
+    tags: preserved
+      ? ["종로", "종로구", "출장마사지", "홈타이", "광화문", "인사동"]
+      : ["서울", "출장마사지", "홈타이"],
+    greeting: c.greeting || "",
+  };
+}
+
+function appendMissingShopsForCards(shops, cards) {
+  const keys = new Set(shops.map(shopKeyFromShop));
+  for (const c of cards) {
+    const k = shopKeyFromCard(c);
+    if (keys.has(k)) continue;
+    shops.push(matchedShopStubFromCard(c));
+    keys.add(k);
+  }
 }
 
 /** 작은따옴표 JS 문자열 이스케이프 */
@@ -254,6 +397,19 @@ const copyByName = {
     greeting: "서울 홈타이 — 오늘은 건식으로 풀고 스웨로 마무리할까요?",
     detailAddress: "서울 전역 홈타이 · 일부 지역은 사전 협의",
   },
+  "종로 북악 루트 출장": {
+    preserveLocation: true,
+    region: "서울",
+    district: "종로",
+    address: "서울 종로구 광화문·인사·삼청·북촌 일대 출장",
+    description:
+      "종로만 따로 잡은 출장 홈타이입니다. 낮엔 박물관·전시 동선, 해질 무렵엔 광화문·세종대로 쪽 퇴근 인파와 겹치기 쉬워서, 예약 시간 전에 어느 쪽에서 합류하는지만 짚어 주셔도 방문 순서가 매끈합니다. 건조한 한옥·펜션형 숙소에서는 향·오일을 최소화하고 건식으로 시작한 뒤, 환기와 수건 준비가 될 때만 라이트 오일로 넘어갑니다. 북악·삼청 쪽 길은 경사와 계단이 잦으니 통화 때 미리 알려 주시면 압과 각도를 낮춰 드립니다.",
+    greeting:
+      "접수드립니다. 오늘은 인사동 쪽에서 놀다 들어오시는지, 광화문·세종 쪽 업무 후인지 한 번만 짚어 주세요. 돌담 골목은 계단이 잦아서, 미리 말씀해 주시면 자세·압 조절 맞춰 둘게요.",
+    detailAddress:
+      "종로 일대 지정 장소 방문 · 좁은 골목·단지 내부는 출입 규정 확인 후 가능 · 심야·새벽은 전일 협의",
+    alt: "종로 출장마사지 북악 루트 — 광화문·인사·북촌 동선 홈타이",
+  },
 };
 
 const defaultCopy = {
@@ -266,13 +422,19 @@ const defaultCopy = {
 function transformCard(c) {
   const o = copyByName[c.name] || defaultCopy;
   const next = { ...c };
-  next.region = "서울";
-  next.district = "서울 전지역";
-  next.address = "서울 전지역";
+  if (o.preserveLocation) {
+    next.region = o.region || next.region || "서울";
+    next.district = o.district || next.district || "종로";
+    next.address = o.address || next.address || "서울 종로구 출장";
+  } else {
+    next.region = "서울";
+    next.district = "서울 전지역";
+    next.address = "서울 전지역";
+  }
   next.detailAddress = o.detailAddress;
   next.description = o.description;
   next.greeting = o.greeting;
-  next.alt = `서울 전지역 출장마사지 ${c.name} — ${c.price || ""}`;
+  next.alt = o.alt || `서울 전지역 출장마사지 ${c.name} — ${c.price || ""}`;
   if (next.dong === "불가" || next.dong === "관리") delete next.dong;
   if (Array.isArray(next.reviews)) {
     next.reviews = next.reviews.map((r) =>
@@ -343,6 +505,7 @@ const m0 = matchedText.indexOf("{");
 const m1 = matchedText.lastIndexOf("}");
 const pack = JSON.parse(matchedText.slice(m0, m1 + 1));
 pack.shops = (pack.shops || []).filter((s) => phoneSet.has(normPhone(s.phone)));
+appendMissingShopsForCards(pack.shops, seoulCards);
 syncMatchedShopsFromCards(pack.shops, seoulCards);
 const matchedOut = `window.shopsDataOutcallMatched = ${JSON.stringify(pack, null, 2)};\n`;
 fs.writeFileSync(MATCHED_JSON, matchedOut, "utf8");

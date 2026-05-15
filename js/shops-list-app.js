@@ -58,6 +58,12 @@
 
   function resolveMatchedShopId(card, shops) {
     if (!card || !Array.isArray(shops)) return null;
+    if (card.shopDetailId) {
+      var byDetail = shops.find(function (s) {
+        return s.id === card.shopDetailId;
+      });
+      if (byDetail) return byDetail.id;
+    }
     var p = normPhone(card.phone);
     if (p) {
       var byPhone = shops.find(function (s) {
