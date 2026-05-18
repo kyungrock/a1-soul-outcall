@@ -118,12 +118,29 @@ function escapeAttr(url) {
   return String(url).replace(/"/g, "&quot;");
 }
 
+/** sitemap <loc> — 한글 경로 등 비ASCII를 퍼센트 인코딩 (GSC·크롤러 호환) */
+function encodeSitemapLoc(url) {
+  const u = new URL(url);
+  u.pathname = u.pathname
+    .split("/")
+    .map((seg) => {
+      if (!seg) return seg;
+      try {
+        return encodeURIComponent(decodeURIComponent(seg));
+      } catch {
+        return encodeURIComponent(seg);
+      }
+    })
+    .join("/");
+  return u.toString();
+}
+
 function writeSitemapAndRobots(effectiveUrl) {
   const cards = loadOutcallCards();
   const shops = loadMatchedShops();
   const blogSlugs = loadBlogDraftSlugs();
   const urls = new Set();
-  urls.add(`${effectiveUrl}/index.html`);
+  urls.add(`${effectiveUrl}/`);
   urls.add(`${effectiveUrl}/shops.html`);
   urls.add(`${effectiveUrl}/blog-article.html`);
   for (const slug of blogSlugs) {
@@ -158,7 +175,7 @@ function writeSitemapAndRobots(effectiveUrl) {
     .map((loc) => {
       let priority = "0.7";
       let changefreq = "weekly";
-      if (/\/index\.html$/.test(loc)) {
+      if (loc === `${effectiveUrl}/` || loc === effectiveUrl) {
         priority = "1.0";
       } else if (/\/shops\.html$/.test(loc)) {
         priority = "0.9";
@@ -177,8 +194,9 @@ function writeSitemapAndRobots(effectiveUrl) {
       } else if (/\/blog\/seoul-[^/]+\.html$/.test(loc)) {
         priority = "0.64";
       }
+      const locEncoded = encodeSitemapLoc(loc);
       return `  <url>
-    <loc>${xmlEscape(loc)}</loc>
+    <loc>${xmlEscape(locEncoded)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
@@ -186,15 +204,15 @@ function writeSitemapAndRobots(effectiveUrl) {
     })
     .join("\n");
 
-  fs.writeFileSync(
-    path.join(ROOT, "sitemap.xml"),
-    `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemapBody = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urlEntries}
 </urlset>
-`,
-    "utf8"
-  );
+`;
+
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemapBody, "utf8");
+  // GSC 가 sitemap.xml 만 실패할 때 대비 동일 내용 복제
+  fs.writeFileSync(path.join(ROOT, "sitemap-index.xml"), sitemapBody, "utf8");
 
   fs.writeFileSync(
     path.join(ROOT, "robots.txt"),
@@ -213,6 +231,7 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: ${effectiveUrl}/sitemap.xml
+Sitemap: ${effectiveUrl}/sitemap-index.xml
 `,
     "utf8"
   );
@@ -242,7 +261,8 @@ function imageLines(siteUrl) {
 
 /** index / shops 공통 패턴 — canonical · og:url · twitter:url · 선택 og:image */
 function blockForStaticPage(siteUrl, pathname) {
-  const canonical = `${siteUrl}${pathname}`;
+  const canonical =
+    pathname === "/" ? `${siteUrl}/` : `${siteUrl}${pathname}`;
   let out = `  <link rel="canonical" href="${escapeAttr(canonical)}" />`;
   out += `\n  <meta property="og:url" content="${escapeAttr(canonical)}" />`;
   out += `\n  <meta name="twitter:url" content="${escapeAttr(canonical)}" />`;
@@ -317,7 +337,7 @@ const pagesIndex = [
     file: "index.html",
     injectFn: () =>
       SITE_CONFIGURED
-        ? blockForStaticPage(SITE_CONFIGURED, "/index.html")
+        ? blockForStaticPage(SITE_CONFIGURED, "/")
         : blockUnset(),
   },
   {

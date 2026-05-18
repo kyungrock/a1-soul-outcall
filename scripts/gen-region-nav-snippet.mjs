@@ -47,7 +47,7 @@ const jeolla = ["광주", "전주", "순천", "여수", "익산", "군산", "목
 
 /** 광역 랜딩 파일명 · 메뉴 상위 링크 */
 const REGION_PARENT_LINK = {
-  seoul: "index.html",
+  seoul: "./",
   gyeonggi: "region-gyeonggi.html",
   incheon: "region-incheon.html",
   chungcheong: "region-chungcheong.html",
@@ -111,7 +111,7 @@ ${submenuItemsFromDist(regionKey, districts)}
 
 const ul = `<nav id="site-nav" class="site-nav" aria-label="주요 메뉴">
   <ul class="site-nav-root" role="list">
-${dropdownDist("index.html", "서울", "seoul", seoul)}
+${dropdownDist("./", "서울", "seoul", seoul)}
 ${dropdownDist("region-gyeonggi.html", "경기", "gyeonggi", gyeonggi)}
 ${dropdownDist("region-incheon.html", "인천", "incheon", incheon)}
 ${dropdownDist("region-chungcheong.html", "충청", "chungcheong", chungcheong)}
@@ -120,7 +120,7 @@ ${dropdownDist("region-jeolla.html", "전라", "jeolla", jeolla)}
 ${dropdownDist("region-gangwon.html", "강원", "gangwon", gangwon)}
 ${dropdownDist("region-jeju.html", "제주", "jeju", jeju)}
     <li><a href="shops.html">업체</a></li>
-    <li><a href="index.html">글</a></li>
+    <li><a href="./">글</a></li>
   </ul>
 </nav>`;
 
@@ -159,7 +159,7 @@ function districtPageHtml(regionKey, district, scopeLabel) {
         <p class="region-kw-actions">
           <a class="btn primary" href="shops.html">등록 업체 보기</a>
           <a class="btn ghost" href="${esc(parentFile)}">${esc(parentLabel)} 지역 전체</a>
-          <a class="btn ghost" href="index.html">홈</a>
+          <a class="btn ghost" href="./">홈</a>
         </p>`;
 
   return `<!DOCTYPE html>
@@ -190,7 +190,7 @@ ${SEO_PLACEHOLDER}
   <header class="site-header">
     <div class="inner">
       <p class="site-title">
-        <a href="index.html">
+        <a href="./">
           <span class="brand-name">서울출장마사지</span>
           <span class="brand-tagline">20대,30대 힐링출장 서비스</span>
         </a>
@@ -225,7 +225,7 @@ ${body}
 function regionPageHtml(spec) {
   const body = `        <h2 class="region-kw-heading visually-hidden">지역 키워드</h2>
         <p class="region-kw-lead">${spec.lead}</p>
-        <p class="region-kw-actions"><a class="btn primary" href="shops.html">등록 업체 보기</a> <a class="btn ghost" href="index.html">서울 홈</a></p>
+        <p class="region-kw-actions"><a class="btn primary" href="shops.html">등록 업체 보기</a> <a class="btn ghost" href="./">서울 홈</a></p>
         <div class="region-kw-grid">
 ${regionLandingCards(spec.districts, spec.scope, spec.regionKey)}
         </div>`;
@@ -257,7 +257,7 @@ ${SEO_PLACEHOLDER}
   <header class="site-header">
     <div class="inner">
       <p class="site-title">
-        <a href="index.html">
+        <a href="./">
           <span class="brand-name">서울출장마사지</span>
           <span class="brand-tagline">20대,30대 힐링출장 서비스</span>
         </a>

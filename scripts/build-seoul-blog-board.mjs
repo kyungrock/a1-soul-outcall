@@ -32,6 +32,11 @@ function renderBlocks(blocks) {
     .join("\n");
 }
 
+/** 게시판 부모 파일 → 블로그 페이지에서의 상대 링크 (홈은 index.html 파일명 대신 /) */
+function listingHref(parentFile) {
+  return parentFile === "index.html" ? "../" : `../${parentFile}`;
+}
+
 function shopBox() {
   return `        <ul class="seoul-blog-shop-box">
           <li><strong>${escapeHtml(SHOP.name)}</strong> · 서울 · ${escapeHtml(SHOP.price)} (변동 가능)</li>
@@ -43,12 +48,13 @@ function shopBox() {
 
 function renderLinks(article) {
   const lines = [
-    `          <li><a href="../index.html">서울출장마사지 홈</a></li>`,
+    `          <li><a href="../">서울출장마사지 홈</a></li>`,
     `          <li><a href="../shops.html">등록 업체 목록</a></li>`,
-    `          <li><a href="../${article.parentFile}">${escapeHtml(article.kwLabel)} · 목록</a></li>`,
+    `          <li><a href="${listingHref(article.parentFile)}">${escapeHtml(article.kwLabel)} · 목록</a></li>`,
   ];
   for (const [label, href] of article.neighborLinks || []) {
-    lines.push(`          <li><a href="../${href}">${escapeHtml(label)}</a></li>`);
+    const nh = href === "index.html" ? "../" : `../${href}`;
+    lines.push(`          <li><a href="${nh}">${escapeHtml(label)}</a></li>`);
   }
   return `<ul class="seoul-blog-links">\n${lines.join("\n")}\n        </ul>`;
 }
@@ -61,7 +67,7 @@ ${renderLinks(article)}`;
 }
 
 function blogPage(article) {
-  const back = `../${article.parentFile}`;
+  const back = listingHref(article.parentFile);
   const title = `${article.title} | 서울출장마사지`;
   const body = renderFullBody(article);
   return `<!DOCTYPE html>
@@ -82,7 +88,7 @@ function blogPage(article) {
   <header class="site-header">
     <div class="inner">
       <p class="site-title">
-        <a href="../index.html">
+        <a href="../">
           <span class="brand-name">서울출장마사지</span>
           <span class="brand-tagline">20대,30대 힐링출장 서비스</span>
         </a>

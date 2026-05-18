@@ -13,3 +13,4 @@ User-agent: Bingbot
 Allow: /
 
 Sitemap: https://kyungrock.github.io/a1-soul-outcall/sitemap.xml
+Sitemap: https://kyungrock.github.io/a1-soul-outcall/sitemap-index.xml
